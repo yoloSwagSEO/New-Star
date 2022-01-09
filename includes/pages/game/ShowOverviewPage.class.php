@@ -73,7 +73,126 @@ class ShowOverviewPage extends AbstractGamePage
 		$fleetTableObj->setPlanet($PLANET['id']);
 		return $fleetTableObj->renderTable();
 	}
-	
+
+	private function GetMessage(){
+        global $LNG, $USER;
+
+        $db = Database::get();
+
+        $MessageList	= array();
+        $MessagesID		= array();
+        $MessCategory = 100;
+        $page = 1;
+        $category = 0;
+        $side = 1;
+        $sql = "SELECT COUNT(*) as state FROM %%MESSAGES%% WHERE message_owner = :userId AND message_deleted IS NULL;";
+        $MessageCount = $db->selectSingle($sql, array(
+            ':userId'   => $USER['id'],
+        ), 'state');
+
+        $maxPage	= max(1, ceil($MessageCount / MESSAGES_PER_PAGE));
+        $page		= max(1, min($page, $maxPage));
+
+        $sql = "SELECT message_id, message_time, message_from, message_subject, message_sender, message_type, message_unread, message_text
+                   FROM %%MESSAGES%%
+                   WHERE message_owner = :userId AND message_deleted IS NULL
+                   ORDER BY message_time DESC
+                   LIMIT :offset, :limit";
+
+        $MessageResult = $db->select($sql, array(
+            ':userId'       => $USER['id'],
+            ':offset'       => (($page - 1) * MESSAGES_PER_PAGE),
+            ':limit'        => MESSAGES_PER_PAGE
+        ));
+
+
+
+        foreach ($MessageResult as $MessageRow)
+        {
+            $MessagesID[]	= $MessageRow['message_id'];
+
+            $MessageList[]	= array(
+                'id'		=> $MessageRow['message_id'],
+                'time'		=> _date($LNG['php_tdformat'], $MessageRow['message_time'], $USER['timezone']),
+                'from'		=> $MessageRow['message_from'],
+                'subject'	=> $MessageRow['message_subject'],
+                'sender'	=> $MessageRow['message_sender'],
+                'type'		=> $MessageRow['message_type'],
+                'unread'	=> $MessageRow['message_unread'],
+                'text'		=> $MessageRow['message_text'],
+            );
+        }
+
+        if(!empty($MessagesID) && $MessCategory != 999) {
+            $sql = 'UPDATE %%MESSAGES%% SET message_unread = 0 WHERE message_id IN ('.implode(',', $MessagesID).') AND message_owner = :userID;';
+            $db->update($sql, array(
+                ':userID'       => $USER['id'],
+            ));
+        }
+
+
+        $TitleColor    	= array ( 0 => '#FFFF00', 1 => '#FF6699', 2 => '#FF3300', 3 => '#FF9900', 4 => '#773399', 5 => '#009933', 15 => '#6495ed', 50 => '#666600', 99 => '#007070', 100 => '#ABABAB',  200 => '#00FF1E', 999 => '#CCCCCC');
+
+        $sql = "SELECT COUNT(*) as state FROM %%MESSAGES%% WHERE message_sender = :userID AND message_type != 50;";
+        $MessOut = $db->selectSingle($sql, array(
+            ':userID'   => $USER['id']
+        ), 'state');
+
+        $OperatorList	= array();
+        $Total			= array(0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 15 => 0, 50 => 0, 99 => 0, 100 => 0, 200 => 0, 999 => 0);
+        $UnRead			= array(0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 15 => 0, 50 => 0, 99 => 0, 100 => 0, 200 => 0, 999 => 0);
+
+        $sql = "SELECT username, email FROM %%USERS%% WHERE universe = :universe AND authlevel != :authlevel ORDER BY username ASC;";
+        $OperatorResult = $db->select($sql, array(
+            ':universe'     => Universe::current(),
+            ':authlevel'    => AUTH_USR
+        ));
+
+        foreach($OperatorResult as $OperatorRow)
+        {
+            $OperatorList[$OperatorRow['username']]	= $OperatorRow['email'];
+        }
+
+        $sql = "SELECT message_type, SUM(message_unread) as message_unread, COUNT(*) as count FROM %%MESSAGES%% WHERE message_owner = :userID AND message_deleted IS NULL GROUP BY message_type;";
+        $CategoryResult = $db->select($sql, array(
+            ':userID'   => $USER['id']
+        ));
+
+        foreach ($CategoryResult as $CategoryRow)
+        {
+            $UnRead[$CategoryRow['message_type']]	= $CategoryRow['message_unread'];
+            $Total[$CategoryRow['message_type']]	= $CategoryRow['count'];
+        }
+
+        $UnRead[100]	= array_sum($UnRead);
+        $Total[100]		= array_sum($Total);
+        $Total[999]		= $MessOut;
+
+        $CategoryList        = array();
+
+        foreach($TitleColor as $CategoryID => $CategoryColor) {
+            $CategoryList[$CategoryID]	= array(
+                'color'		=> $CategoryColor,
+                'unread'	=> $UnRead[$CategoryID],
+                'total'		=> $Total[$CategoryID],
+            );
+        }
+
+
+
+
+        return array(
+            'MessID'		=> $MessCategory,
+            'MessageCount'	=> $MessageCount,
+            'MessageList'	=> $MessageList,
+            'page'			=> $page,
+            'maxPage'		=> $maxPage,
+            'CategoryList'	=> $CategoryList,
+            'OperatorList'	=> $OperatorList,
+            'category'		=> $category,
+            'side'			=> $side,
+        );
+    }
 	function savePlanetAction()
 	{
 		global $USER, $PLANET, $LNG;
@@ -287,7 +406,10 @@ class ShowOverviewPage extends AbstractGamePage
 			$rankInfo	= sprintf($LNG['ov_userrank_info'], pretty_number($statData['total_points']), $LNG['ov_place'],
 				$statData['total_rank'], $statData['total_rank'], $LNG['ov_of'], $config->users_amount);
 		}
-		
+
+        $messages = $this->GetMessage();
+        $this->tplObj->loadscript('message.js');
+
 		$this->assign(array(
             'UsersOnline'				=> $UsersOnline,
             'race'                      => $USER['race'],
@@ -326,6 +448,15 @@ class ShowOverviewPage extends AbstractGamePage
 			'chatOnline'				=> $chatOnline,
 			'servertime'				=> _date("M D d H:i:s", TIMESTAMP, $USER['timezone']),
 			'path'						=> HTTP_PATH,
+            'MessID'		=> $messages['MessID'],
+            'MessageCount'	=> $messages['MessageCount'],
+            'MessageList'	=> $messages['MessageList'],
+            'page'			=> $messages['page'],
+            'maxPage'		=> $messages['maxPage'],
+            'CategoryList'	=> $messages['CategoryList'],
+            'OperatorList'	=> $messages['OperatorList'],
+            'category'		=> $messages['category'],
+            'side'			=> $messages['side'],
 		));
 		
 		$this->display('page.overview.default.tpl');
