@@ -45,6 +45,10 @@ Message	= {
 		});
 	},
 
+	getMessage: function(idMessage){
+		jQuery('#message-body_'+idMessage).toggle();
+	},
+
 	stripHTML: function (string) { 
 		return string.replace(/<(.|\n)*?>/g, ''); 
 	},
