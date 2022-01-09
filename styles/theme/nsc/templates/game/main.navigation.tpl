@@ -31,66 +31,104 @@
             {else}
             <a class="big_btn blue btn_menu btn_menu_big">{$bonus_time_rest}</a>
             {/if}
-            {*<div class="separator"></div>*} 
+            {*<div class="separator"></div>*}
+
+            <div class="row">
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}
+                        <a class="nuovomenusinistra" href="game.php?page=research" id="munu_research">{$LNG.lm_research}</a>
+                        <a class="nuovomenudestra" href="game.php?page=research"><img src="{$dpath}img/iconav/research.png" class="imgovernuovo"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}
+                        <a class="nuovomenusinistra" href="game.php?page=buildings" id="munu_build">{$LNG.lm_buildings}</a>
+                    {/if}
+                    {if isModuleAvailable($smarty.const.MODULE_RESSOURCE_LIST)}
+                        <a class="nuovomenudestra tooltip2m" href="game.php?page=resources" id="munu_resources" data-tooltip-content="{$LNG.lm_resources}"><img src="{$dpath}img/iconav/resources.png" class="oimgaltro"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}
+                        <a class="nuovomenusinistra" href="game.php?page=shipyard&amp;mode=fleet" id="munu_shipyard_fleet">{$LNG.lm_shipshard}</a>
+                        <a class="nuovomenudestra" href="game.php?page=shipyard&amp;mode=fleet" id="munu_fleetable"><img src="{$dpath}img/iconav/hangar.png" class="imgovernuovo"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}
+                        <a class="nuovomenusinistra" href="game.php?page=shipyard&amp;mode=defense" id="munu_shipyard_defense">{$LNG.lm_defenses}</a>
+                        <a class="nuovomenudestra" href="game.php?page=shipyard&amp;mode=defense"><img src="{$dpath}img/iconav/shield.png" class="imgovernuovo"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    <a class="nuovomenusinistra" href="game.php?page=fleetTable" id="munu_orbita">{$LNG.lm_fleet}</a>
+                    {if isModuleAvailable($smarty.const.MODULE_SIMULATOR)}
+                        <a class="nuovomenudestra tooltip2m" href="game.php?page=battleSimulator" id="munu_fleetable" data-tooltip-content="{$LNG.lm_battlesim}"><img src="{$dpath}img/iconav/target.png" class="oimgaltro"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_ALLIANCE)}
+                        <a class="nuovomenusinistra" href="game.php?page=alliance" id="munu_alliance">{$LNG.lm_alliance}</a>
+                        <a class="nuovomenudestra" href="game.php?page=alliance"><img src="{$dpath}img/iconav/alliance.png" class="imgovernuovo" id="ciaone"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_MARKET)}
+                        <a class="nuovomenusinistra" href="game.php?page=market">{$LNG.lm_market}</a>
+                        <a class="nuovomenudestra" href="game.php?page=market"><img src="{$dpath}img/iconav/market.png" class="imgovernuovo"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_ARSENAL)}
+                        <a class="nuovomenusinistra" href="game.php?page=arsenal">{$LNG.lm_ars}</a>
+                    {/if}
+                    {if isModuleAvailable($smarty.const.MODULE_CONTAINER)}
+                        <a class="nuovomenudestra tooltip2m" href="game.php?page=conteiner" id="munu_fleetable" data-tooltip-content="{$LNG.lm_container}"><img src="{$dpath}img/iconav/arsenal.png" class="oimgaltro"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_OFFICIER)}
+                        <a class="nuovomenusinistra" href="game.php?page=officier" id="munu_senat">{$LNG.lm_officiers}</a>
+                        <a class="nuovomenudestra" href="game.php?page=officier"><img src="{$dpath}img/iconav/governatori.png" class="imgovernuovo" id="ciaone"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_MINERALS)}
+                        <a class="nuovomenusinistra" href="game.php?page=minerals" id="munu_senat">{$LNG.lm_minerals}</a>
+                    {/if}
+                    {if isModuleAvailable($smarty.const.MODULE_DETAILS)}
+                        <a class="nuovomenudestra tooltip2m" href="game.php?page=details" id="munu_fleetable" data-tooltip-content="{$LNG.lm_details}"><img src="{$dpath}img/iconav/blackmarket.png" class="oimgaltro"></a>
+                    {/if}
+                </div>
+                <div class="col-6">
+                    {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
+                        <a class="galassiabott" href="game.php?page=galaxy" id="munu_galaxy">{$LNG.lm_galaxy}</a>
+                    {/if}
+                    {if $authlevel > 0}
+                        <a  href="admin.php" class="big_btn green btn_menu btn_menu_big">{$LNG.lm_administration}</a>
+                    {/if}
+                </div>
+            </div>
             <!-- ricerche  tecnologie-->
-            {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}
-            <a class="nuovomenusinistra" href="game.php?page=research" id="munu_research">{$LNG.lm_research}</a>
-            <a class="nuovomenudestra" href="game.php?page=research"><img src="{$dpath}img/iconav/research.png" class="imgovernuovo"></a>
-            {/if}
+
             <!-- costruzioni risorse-->
-            {if isModuleAvailable($smarty.const.MODULE_BUILDING)}
-            <a class="nuovomenusinistra" href="game.php?page=buildings" id="munu_build">{$LNG.lm_buildings}</a>
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_RESSOURCE_LIST)}
-            <a class="nuovomenudestra tooltip" href="game.php?page=resources" id="munu_resources" data-tooltip-content="{$LNG.lm_resources}"><img src="{$dpath}img/iconav/resources.png" class="oimgaltro"></a>
-            {/if}
+
             <!-- flotta hangar -->
-            {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}
-            <a class="nuovomenusinistra" href="game.php?page=shipyard&amp;mode=fleet" id="munu_shipyard_fleet">{$LNG.lm_shipshard}</a>
-            <a class="nuovomenudestra" href="game.php?page=shipyard&amp;mode=fleet" id="munu_fleetable"><img src="{$dpath}img/iconav/hangar.png" class="imgovernuovo"></a>
-            {/if}
+
             <!-- difese -->
-            {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}
-            <a class="nuovomenusinistra" href="game.php?page=shipyard&amp;mode=defense" id="munu_shipyard_defense">{$LNG.lm_defenses}</a>
-            <a class="nuovomenudestra" href="game.php?page=shipyard&amp;mode=defense"><img src="{$dpath}img/iconav/shield.png" class="imgovernuovo"></a>
-            {/if}
+
             <!-- Orbita -->
-            <a class="nuovomenusinistra" href="game.php?page=fleetTable" id="munu_orbita">{$LNG.lm_fleet}</a>
-            {if isModuleAvailable($smarty.const.MODULE_SIMULATOR)}
-            <a class="nuovomenudestra tooltip" href="game.php?page=battleSimulator" id="munu_fleetable" data-tooltip-content="{$LNG.lm_battlesim}"><img src="{$dpath}img/iconav/target.png" class="oimgaltro"></a>	
-            {/if}            
+
             <!-- alleanza-->
-            {if isModuleAvailable($smarty.const.MODULE_ALLIANCE)}
-			<a class="nuovomenusinistra" href="game.php?page=alliance" id="munu_alliance">{$LNG.lm_alliance}</a>
-            <a class="nuovomenudestra" href="game.php?page=alliance"><img src="{$dpath}img/iconav/alliance.png" class="imgovernuovo" id="ciaone"></a>	
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_MARKET)}
-            <a class="nuovomenusinistra" href="game.php?page=market">{$LNG.lm_market}</a>
-            <a class="nuovomenudestra" href="game.php?page=market"><img src="{$dpath}img/iconav/market.png" class="imgovernuovo"></a>
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_ARSENAL)}
-            <a class="nuovomenusinistra" href="game.php?page=arsenal">{$LNG.lm_ars}</a>
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_CONTAINER)}
-            <a class="nuovomenudestra tooltip" href="game.php?page=conteiner" id="munu_fleetable" data-tooltip-content="{$LNG.lm_container}"><img src="{$dpath}img/iconav/arsenal.png" class="oimgaltro"></a>	
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_OFFICIER)}
-            <a class="nuovomenusinistra" href="game.php?page=officier" id="munu_senat">{$LNG.lm_officiers}</a>
-            <a class="nuovomenudestra" href="game.php?page=officier"><img src="{$dpath}img/iconav/governatori.png" class="imgovernuovo" id="ciaone"></a>
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_MINERALS)}
-            <a class="nuovomenusinistra" href="game.php?page=minerals" id="munu_senat">{$LNG.lm_minerals}</a>
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_DETAILS)}
-            <a class="nuovomenudestra tooltip" href="game.php?page=details" id="munu_fleetable" data-tooltip-content="{$LNG.lm_details}"><img src="{$dpath}img/iconav/blackmarket.png" class="oimgaltro"></a>	
-            {/if}
+
+
+
+
+
+
+
             <!-- ufficiali governatori -->
-            {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
-            <a class="galassiabott" href="game.php?page=galaxy" id="munu_galaxy">{$LNG.lm_galaxy}</a>
-            {/if}   
-     		{if $authlevel > 0}
-            <a  href="admin.php" class="big_btn green btn_menu btn_menu_big">{$LNG.lm_administration}</a>
-            {/if}
+
             <div class="clear"></div>                
     </div>
     </div><!--/left_menu-->

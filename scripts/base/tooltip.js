@@ -15,16 +15,16 @@
 
 $(document).ready(function () {
     //fleet speed, incoming attacks
-    $(document).on("mouseenter", ".tooltip", function (e) {
+    $(document).on("mouseenter", ".tooltip2m", function (e) {
         var tip = $('#tooltip');
         tip.html($(this).attr('data-tooltip-content'));
         tip.show();
     });
-    $(document).on("mouseleave", ".tooltip", function () {
+    $(document).on("mouseleave", ".tooltip2m", function () {
         var tip = $('#tooltip');
         tip.hide();
     });
-    $(document).on("mousemove", ".tooltip", function (e) {
+    $(document).on("mousemove", ".tooltip2m", function (e) {
         var tip = $('#tooltip');
         var mousex = e.pageX + 20;
         var mousey = e.pageY + 20;

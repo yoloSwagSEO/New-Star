@@ -22,13 +22,18 @@
     <!--keypress-->
     <script type="text/javascript" src="./scripts/base/keypress.js"></script>
     <!--jquery-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery_1.8.18.css">
     <script type="text/javascript" src="./scripts/base/jquery.js"></script>
     <script type="text/javascript" src="./scripts/base/jquery.ui.js"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.cookie.js"></script>
     <!--fancybox-->
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox_3.5.7.css">
-    <script type="text/javascript" src="./scripts/base/jquery.fancybox.js"></script>    
+    <script type="text/javascript" src="./scripts/base/jquery.fancybox.js"></script>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
     <!--style-->
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/ingame/main.css">
     <link rel="stylesheet" type="text/css" href="{$dpath}css/navigation.css">

@@ -1,3 +1,9 @@
+#left_menu .col-6{
+	padding-right: 0;
+}
+#left_menu .col-6:nth-child(even) {
+	padding-left: 0;
+}
 @media screen and (max-width: 1220px) {
 	#build_elements .build_box
 	{

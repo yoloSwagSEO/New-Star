@@ -25,13 +25,13 @@
             <div class="palnet_row {if $current_pid == $ID}active_palnet_row{/if}">
 				<div class="fleet_indicators">
                     <img id="{$ID}m1" {if $Element.totalAttacks == 0}style="display:none;"{/if} src="{$dpath}img/iconav/p_select_attack.png" alt="" class="tooltip" data-tooltip-content="{$LNG.pla_attack_1}" />                                    
-                    <img id="{$ID}m12" style="display:none;" src="{$dpath}img/iconav/p_select_grab.png" alt="" class="tooltip" data-tooltip-content="Планету захватывают" />
+                    <img id="{$ID}m12" style="display:none;" src="{$dpath}img/iconav/p_select_grab.png" alt="" class="tooltip2m" data-tooltip-content="Планету захватывают" />
                     <img id="{$ID}m6" {if $Element.totalSpio == 0}style="display:none;"{/if} src="{$dpath}img/iconav/p_select_spio.png" alt="" class="tooltip" data-tooltip-content="{$LNG.pla_attack_2}" />
                     <img id="{$ID}m10" {if $Element.totalRockets == 0}style="display:none;"{/if} src="{$dpath}img/iconav/p_select_rocket.png" alt="" class="tooltip" data-tooltip-content="{$LNG.pla_attack_3}" />                 
                     {if $Element.luna !=0}  
                     <img id="{$Element.luna}m1" {if $Element.totalAttackLuna == 0}style="display:none;"{/if} src="{$dpath}img/iconav/p_select_moon_attack.png" alt="" class="tooltip" data-tooltip-content="{$LNG.pla_attack_4}" />
                     <img id="{$Element.luna}m6" {if $Element.totalRocketsLuna == 0}style="display:none;"{/if} src="{$dpath}img/iconav/p_select_moon_spio.png" alt="" class="tooltip" data-tooltip-content="{$LNG.pla_attack_5}" />       
-                    <img id="{$Element.luna}m9" style="display:none;" src="{$dpath}img/iconav/p_select_destrued.png" alt="" class="tooltip" data-tooltip-content="{$LNG.pla_attack_6}" />
+                    <img id="{$Element.luna}m9" style="display:none;" src="{$dpath}img/iconav/p_select_destrued.png" alt="" class="tooltip2m" data-tooltip-content="{$LNG.pla_attack_6}" />
                     <img id="{$Element.luna}m10" {if $Element.totalSpioLuna == 0}style="display:none;"{/if} src="{$dpath}img/iconav/p_select_moon_rocket.png" alt="" class="tooltip" data-tooltip-content="{$LNG.pla_attack_7}" />                         
 					{/if}                
                     <div class="clear"></div>
@@ -41,7 +41,7 @@
                     <span class="name_palnet"  style="padding-top: 5px;padding-left: 5px;width: 70px;">{$Element.name}</span>
 					<span class="ico_build">
                         {if $Element.buildInfo.buildings}
-                            <img src="{$dpath}img/iconav/p_select_build.png" alt="" class="tooltip" data-tooltip-content="
+                            <img src="{$dpath}img/iconav/p_select_build.png" alt="" class="tooltip2m" data-tooltip-content="
                                 <table class='reducefleet_table'>
                                     <tr>
                                     <td rowspan='2'><img alt='' src='{$dpath}gebaeude/{$Element.buildInfo.buildings['id']}.gif' width='35' height='35'></td>
@@ -52,7 +52,7 @@
                             "/>
 						{/if}
 						{if $Element.buildInfo.fleet}
-                            <img src="{$dpath}img/iconav/p_select_ship.png" alt="" class="tooltip" data-tooltip-content="
+                            <img src="{$dpath}img/iconav/p_select_ship.png" alt="" class="tooltip2m" data-tooltip-content="
                                 <table class='reducefleet_table'>
                                     <tr>
                                     <td rowspan='2'><img alt='' src='{$dpath}gebaeude/{$Element.buildInfo.fleet['id']}.gif' width='35' height='35'></td>
@@ -63,7 +63,7 @@
                             "/> 
 						{/if}
 						{if $Element.buildInfo.tech}
-							<img src="{$dpath}img/iconav/p_select_tech.png" alt="" class="tooltip" data-tooltip-content="
+							<img src="{$dpath}img/iconav/p_select_tech.png" alt="" class="tooltip2m" data-tooltip-content="
                                 <table class='reducefleet_table'>
                                 <tr>
                                 <td rowspan='2'><img alt='' src='{$dpath}gebaeude/{$Element.buildInfo.tech['id']}.gif' width='35' height='35'></td>
@@ -94,7 +94,7 @@
             {foreach $resourceTable as $resourceID => $resouceData} 
                 {if !isset($resouceData.current)}
                     {$resouceData.current = $resouceData.max + $resouceData.used}
-                    <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {$resouceData.percent|number}%">
+                    <div id="res_block_{$resouceData.name}" class="bloc_res tooltip2m" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {$resouceData.percent|number}%">
                         <div class="ico_res"></div>
                         <div class="stock_res">
                             <div class="stock_percentage stock_percentage_left" style="width:{abs($resouceData.percent/2)}%;{if $resouceData.percent > -0.1}display:none;{/if}"></div>
@@ -105,7 +105,7 @@
                     </div>
                 {else}
                     {if !isset($resouceData.current) || !isset($resouceData.max)}
-                        <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {pretty_number($resouceData.current)}">
+                        <div id="res_block_{$resouceData.name}" class="bloc_res tooltip2m" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {pretty_number($resouceData.current)}">
                             {if isModuleAvailable($smarty.const.MODULE_FAIR)}
                             <a href="game.php?page=fair"><div class="ico_res"></div></a>
                             {else}
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     {else}
-                        <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" 
+                        <div id="res_block_{$resouceData.name}" class="bloc_res tooltip2m"
                             data-tooltip-content="
                             <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>
                             <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>
@@ -132,7 +132,7 @@
                             {else}
                             <div class="ico_res"></div>
                             {/if}
-                            {*<a href="game.php?page=trader&amp;mode=trade&amp;resource=901" class="exchange_res tooltip" data-tooltip-content="Обменять <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>"></a>*}
+                            {*<a href="game.php?page=trader&amp;mode=trade&amp;resource=901" class="exchange_res tooltip2m" data-tooltip-content="Обменять <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>"></a>*}
                             <div class="stock_res" onclick="document.location.uri='game.php?page=resources'">
                                 <div class="stock_percentage" style="width:{$resouceData.percent}%;"></div>
                                 <div class="stock_text">
