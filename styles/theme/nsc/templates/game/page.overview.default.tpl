@@ -307,32 +307,22 @@
                             </div>
                         </div>
                     </div>
-                    {if $is_news}
-                        <div class="col-12">
-                            <div class="card mt-1 background-border-black-blue shadow">
-                                <div class="card-body">
-                                    <p class="card-title">{$LNG.ov_news}</p>
-                                    <p class="card-text overflow-auto" style="max-height: 50px;">{$news}</p>
-                                </div>
-                            </div>
-                        </div>
-                    {/if}
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                        <a class="nav-link active" id="messagerie-tab" data-toggle="tab" href="#messagerie" role="tab" aria-controls="messagerie" aria-selected="true">Messagerie</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">News</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Quêtes</a>
                     </li>
                 </ul>
 
 
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="messagerie" role="tabpanel" aria-labelledby="messagerie-tab">
                     <div class="ach_main_block" style="border:0">
                     <div class="gray_flettab">
                         {$LNG.mg_overview}<span id="loading" style="display:none;"> ({$LNG.loading})</span>
@@ -535,7 +525,18 @@
                     </div>
                 </div>
                 </div>
-                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  {if $is_news}
+                    <div class="col-12">
+                        <div class="card mt-1 background-border-black-blue shadow">
+                            <div class="card-body">
+                                <p class="card-title">{$LNG.ov_news}</p>
+                                <p class="card-text overflow-auto" style="max-height: 50px;">{$news}</p>
+                            </div>
+                        </div>
+                    </div>
+                  {/if}
+                </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
             </div>
         </div>
