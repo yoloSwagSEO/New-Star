@@ -68,7 +68,7 @@
                     {if !isset($GalaxyRows[$planet])}
                     <div class="gal_user {if $planet != 1 && $planet != 3 && $planet != 5 && $planet != 7 && $planet != 9 && $planet != 11 && $planet != 13 && $planet != 15}second{/if}">   
                         <div class="gal_number">
-                            <a href="game.php?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1" class="tooltip" data-tooltip-content="
+                            <a href="game.php?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1" class="tooltip2m" data-tooltip-content="
                                 <table class='reducefleet_table'>
                                     <tr>
                                         <td class='reducefleet_img_ship'><img src='{$dpath}img/iconav/position.png'></td>
@@ -108,7 +108,7 @@
                             <span style="color:#0abd00">{$planet}</span></a>
                         </div>
                         {$currentPlanet = $GalaxyRows[$planet]}
-                        <span id="p_{$currentPlanet.planet.id}" class="tooltip gal_img_planet" data-tooltip-content="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]">
+                        <span id="p_{$currentPlanet.planet.id}" class="tooltip2m gal_img_planet" data-tooltip-content="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]">
                             <div class="gl-actions">
                                 <table class="gl-actions-t">	
                                     <tbody>	

@@ -45,7 +45,7 @@
             <span style="color:#09F;">{$ACSRow.time_fleet|time} </span>
          </div>
 
-         <div class="rd_planet_fleets tooltip" data-tooltip-content="
+         <div class="rd_planet_fleets tooltip2m" data-tooltip-content="
             <table class='reducefleet_table'>       
             {foreach $reducefleet as $ship}
             {if $ACSRow.{$ship} != 0}

@@ -86,11 +86,11 @@
         <div class="card m-1 background-border-black-blue shadow"> 
             <div class="card-body">
                 {if $FleetInfo.tech == 1 || $FleetInfo.tech == 4}
-                <div class="card-img-left opacity-70 tooltip" style="background:url({$dpath}img/information/comb.png)" data-tooltip-content="{$LNG.tech.115}"></div> 
+                <div class="card-img-left opacity-70 tooltip2m" style="background:url({$dpath}img/information/comb.png)" data-tooltip-content="{$LNG.tech.115}"></div>
                 {elseif $FleetInfo.tech == 2 || $FleetInfo.tech == 5}
-                <div class="card-img-left opacity-70 tooltip" style="background:url({$dpath}img/information/imp.png)" data-tooltip-content="{$LNG.tech.117}"></div> 
+                <div class="card-img-left opacity-70 tooltip2m" style="background:url({$dpath}img/information/imp.png)" data-tooltip-content="{$LNG.tech.117}"></div>
                 {else}
-                <div class="card-img-left opacity-70 tooltip" style="background:url({$dpath}img/information/hyper.png)" data-tooltip-content="{$LNG.tech.118}"></div> 
+                <div class="card-img-left opacity-70 tooltip2m" style="background:url({$dpath}img/information/hyper.png)" data-tooltip-content="{$LNG.tech.118}"></div>
                 {/if} 
                 <p class="card-title text-align-right">{$LNG.in_engine}</p>
                 <p class="card-text text-align-right gradient-gray">{$FleetInfo.speed1|number}</p>
@@ -131,8 +131,8 @@
                 {foreach $FleetInfo.rapidfire.to as $rapidfireID => $shoots}
                     <div class="col-2">
                         <div class="card background-border-black-blue m-1"> 
-                            <span class="card-img-text background-color-blue opacity-70 tooltip" data-tooltip-content="{$LNG.in_number}">{$shoots|number}</span>
-                            <img src="{$dpath}gebaeude/{$rapidfireID}.gif" alt="{$LNG.tech.$rapidfireID}" class="opacity-70 tooltip" data-tooltip-content="{$LNG.tech.$rapidfireID}">
+                            <span class="card-img-text background-color-blue opacity-70 tooltip2m" data-tooltip-content="{$LNG.in_number}">{$shoots|number}</span>
+                            <img src="{$dpath}gebaeude/{$rapidfireID}.gif" alt="{$LNG.tech.$rapidfireID}" class="opacity-70 tooltip2m" data-tooltip-content="{$LNG.tech.$rapidfireID}">
                         </div>
                     </div>
                 {/foreach}
@@ -150,8 +150,8 @@
                 {foreach $FleetInfo.rapidfire.from as $rapidfireID => $shoots}
                     <div class="col-2">
                         <div class="card background-border-black-blue m-1"> 
-                            <span class="card-img-text background-color-red opacity-70 tooltip" data-tooltip-content="{$LNG.in_number}">{$shoots|number}</span>
-                            <img src="{$dpath}gebaeude/{$rapidfireID}.gif" alt="{$LNG.tech.$rapidfireID}" class="opacity-70 tooltip" data-tooltip-content="{$LNG.tech.$rapidfireID}">
+                            <span class="card-img-text background-color-red opacity-70 tooltip2m" data-tooltip-content="{$LNG.in_number}">{$shoots|number}</span>
+                            <img src="{$dpath}gebaeude/{$rapidfireID}.gif" alt="{$LNG.tech.$rapidfireID}" class="opacity-70 tooltip2m" data-tooltip-content="{$LNG.tech.$rapidfireID}">
                         </div>
                     </div>
                 {/foreach}

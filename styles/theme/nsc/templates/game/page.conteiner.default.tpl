@@ -5,7 +5,7 @@
     <div id="content">
         <div id="ally_content" class="conteiner">
             <div class="gray_stripe">
-                <div class="position tooltip" data-tooltip-content="{$LNG.cont_open_24}">
+                <div class="position tooltip2m" data-tooltip-content="{$LNG.cont_open_24}">
                     <font color="#2db300"> {$sum|number}</font>
                 </div>
             </div>

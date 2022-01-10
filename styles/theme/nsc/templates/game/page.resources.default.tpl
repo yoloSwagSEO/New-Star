@@ -18,7 +18,7 @@
                         {if $productionID != 48}{if $productionID != 54}
                             <div class="rexx2 rexx3">
                                 <a href="#" onclick="return Dialog.info({$productionID})"><img src="{$dpath}gebaeude/{$productionID}.gif" style="margin-right:3px">{$LNG.tech.$productionID} 
-                                    <span class="rexx4 tooltip" data-tooltip-content="{if $productionID  > 200}{$LNG.rs_amount}{else}{$LNG.rs_lvl}{/if}">{$productionRow.elementLevel}</span>
+                                    <span class="rexx4 tooltip2m" data-tooltip-content="{if $productionID  > 200}{$LNG.rs_amount}{else}{$LNG.rs_lvl}{/if}">{$productionRow.elementLevel}</span>
                                 </a>
                             </div>
                         {/if}{/if}

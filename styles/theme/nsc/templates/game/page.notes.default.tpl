@@ -30,7 +30,7 @@
                         {/if}
                     </a>
                 </td>
-                <td class="classstat8 tooltip" style="text-align: right;width: 310px;max-width: 310px;min-width: 310px;overflow: hidden; white-space: nowrap;">{$notesRow.size|number}</td>
+                <td class="classstat8 tooltip2m" style="text-align: right;width: 310px;max-width: 310px;min-width: 310px;overflow: hidden; white-space: nowrap;">{$notesRow.size|number}</td>
             </tr>
             {foreachelse}
             <tr class="classificabarra">

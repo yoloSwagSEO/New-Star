@@ -16,13 +16,13 @@
                                 <form action="game.php?page=shipyard&amp;mode={$mode}" method="post" class="build_form">
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="auftr[]" value="{$List@iteration - 1}">
-                                    <button type="submit" class="del tooltip" data-tooltip-content="{$LNG.bd_cancel_warning}"></button>
+                                    <button type="submit" class="del tooltip2m" data-tooltip-content="{$LNG.bd_cancel_warning}"></button>
                                 </form>
                             {else}
                                 <form action="game.php?page=shipyard&amp;mode={$mode}" method="post" class="build_form">
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="auftr[]" value="{$List@iteration - 1}">
-                                    <button type="submit" class="del tooltip" data-tooltip-content="{$LNG.bd_cancel_warning}"></button>
+                                    <button type="submit" class="del tooltip2m" data-tooltip-content="{$LNG.bd_cancel_warning}"></button>
                                 </form>
                             {/if}
                             {if $List@first}
@@ -55,7 +55,7 @@
                     {if $mode == "defense"}
                     <div class="gray_stripe" style="height:0px; padding-right: 0; padding: 0;">
                         {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
-                        <a href="game.php?page=fleetDealer" class="palanetarium_linck ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
+                        <a href="game.php?page=fleetDealer" class="palanetarium_linck ico_trader tooltip2m" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
                         {/if}
                         <div style="float:left">{$LNG.lm_defenses}</div>
                         <span class="record_btn ico_star record_btn_active" onclick="rank();"></span>
@@ -70,7 +70,7 @@
                     {else}
                     <div class="gray_stripe" style="height:0px; padding-right: 0; padding: 0;">
                         {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
-                        <a href="game.php?page=fleetDealer" class="palanetarium_linck ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
+                        <a href="game.php?page=fleetDealer" class="palanetarium_linck ico_trader tooltip2m" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
                         {/if}
                         <div style="float:left">{$LNG.lm_shipshard}</div>
                         <span class="record_btn ico_star record_btn_active" onclick="rank();"></span>
@@ -91,7 +91,7 @@
                             <div class="head">
                                 <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
                                 <a href="#" onclick="return Dialog.info({$ID})" class="title">{$LNG.tech.{$ID}} </a> 
-                                <span class="tooltip available" data-tooltip-content="{$LNG.bd_available}">
+                                <span class="tooltip2m available" data-tooltip-content="{$LNG.bd_available}">
                                 <span id="val_{$ID}">{if $Element.available != 0} ({$Element.available|number}){/if}</span>    
                             </div>
                             <div class="content_box">
@@ -104,7 +104,7 @@
                                     {foreach $Element.AllTech as $elementID => $requireList}
                                         {foreach $requireList as $requireID => $NeedLevel}
                                         <div class="required_block required_smal_text">
-                                            <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
+                                            <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip2m" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
                                             <img src="{$dpath}gebaeude/{$requireID}.gif" alt="{$LNG.tech.$requireID}" />
                                             <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.own}/{$NeedLevel.count}</div></a>
                                         </div>
@@ -122,7 +122,7 @@
                                     <div class="res_global_info">
                                         {if !empty($Element.fleetgun)}
                                         {if $Element.fleetgun == 'notype'}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/notype.png'></td>
@@ -131,7 +131,7 @@
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/notype.png"></a>
                                         </div>
                                         {else}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 {if !empty($Element.fleetgun.laser.attack)}
                                                 <tr>
@@ -161,7 +161,7 @@
                                         </div>
                                         {/if}
                                         {/if}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/d_{$Element.info.class_defend}.png'></td>
@@ -170,7 +170,7 @@
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/d_{$Element.info.class_defend}.png"></a>
                                         </div>
                                         {if $Element.info.class_shield != 's_none'}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/s_{$Element.info.class_shield}.png'></td>
@@ -181,7 +181,7 @@
                                         {/if}
                                         {if !empty($Element.tech) && !empty($Element.speed1)}
                                         <div class="res_info info_res_901">
-                                        <a class="tooltip" data-tooltip-content="
+                                        <a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     {if $Element.tech == 1 || $Element.tech == 4}
@@ -219,7 +219,7 @@
                                         </div>     
                                         {/if} 
                                         {if $ID == in_array($ID, $reslist.defense)}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/recovery.png'></td>

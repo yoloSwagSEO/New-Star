@@ -13,13 +13,13 @@
         <div class="barracla classstat4"></div>		
         <a href="#" class="fbox-s-name classstat5" onclick="return Dialog.Playercard({$RangeInfo.id}, '{$RangeInfo.name}');">
             {if isModuleAvailable($smarty.const.MODULE_RACE)}
-            <img class="tooltip" data-tooltip-content="{$LNG.tech.{$RangeInfo.race}}" src="{$dpath}gebaeude/{$RangeInfo.race}.gif" width="18"</a>
+            <img class="tooltip2m" data-tooltip-content="{$LNG.tech.{$RangeInfo.race}}" src="{$dpath}gebaeude/{$RangeInfo.race}.gif" width="18"</a>
             {/if}
             {if isModuleAvailable($smarty.const.MODULE_FORMGOVERNMENT)}
-            <img class="tooltip" data-tooltip-content="{$LNG.tech.{$RangeInfo.formgovernment}}" src="{$dpath}gebaeude/{$RangeInfo.formgovernment}.png" width="18"</a>
+            <img class="tooltip2m" data-tooltip-content="{$LNG.tech.{$RangeInfo.formgovernment}}" src="{$dpath}gebaeude/{$RangeInfo.formgovernment}.png" width="18"</a>
             {/if}
             {if isModuleAvailable($smarty.const.MODULE_ETHICS)}
-            <img class="tooltip" data-tooltip-content="{$LNG.tech.{$RangeInfo.ethics}}" src="{$dpath}gebaeude/{$RangeInfo.ethics}.png" width="18"</a>
+            <img class="tooltip2m" data-tooltip-content="{$LNG.tech.{$RangeInfo.ethics}}" src="{$dpath}gebaeude/{$RangeInfo.ethics}.png" width="18"</a>
             {/if}
             <span {if $RangeInfo.id == $CUser_id} style="color:lime"{/if}>{$RangeInfo.name}</span>	
             {if !empty($RangeInfo.class)}<span class="classstat6">{foreach $RangeInfo.class as $class}<span class='galaxy-short-{$class} galaxy-short'>{$ShortStatus.$class} </span>{/foreach}</span>{/if}

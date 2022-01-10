@@ -60,7 +60,7 @@
                     <div class="batle_mem_content" {if $RoundInfo@last}style="display:block;"{/if}>
 						{foreach $Player.ships as $ShipID => $ShipData}	
    		    	        <div class="batle_unit">
-                            <div class="img_unit tooltip" style="cursor:help !important" data-tooltip-content="
+                            <div class="img_unit tooltip2m" style="cursor:help !important" data-tooltip-content="
                                 <table>
                                     <tr>
                                         <td style='color:#FC0; text-align:right !important;'>{$LNG.sys_ship_weapon}:</td>
@@ -88,7 +88,7 @@
                                 {/if}
                             </div>
                             <span class="name_unit">{$LNG.shortNames.{$ShipID}}</span><br/>
-                            <span class="tooltip" data-real="{$ShipData[0]|number}" data-tooltip-content="{$ShipData[0]|number}">{pretty_number($ShipData[0])}</span><br/>
+                            <span class="tooltip2m" data-real="{$ShipData[0]|number}" data-tooltip-content="{$ShipData[0]|number}">{pretty_number($ShipData[0])}</span><br/>
                             <span class="destruct_unit">{if $ShipData[4] != 0 }-{/if}{$ShipData[4]|number}</span>
                         </div>
                         {/foreach}
@@ -112,7 +112,7 @@
                     <div class="batle_mem_content" {if $RoundInfo@last}style="display:block;"{/if}>
 						{foreach $Player.ships as $ShipID => $ShipData}	
    		    	        <div class="batle_unit">
-                            <div class="img_unit tooltip" style="cursor:help !important" data-tooltip-content="
+                            <div class="img_unit tooltip2m" style="cursor:help !important" data-tooltip-content="
                                 <table>
                                     <tr>
                                         <td style='color:#FC0; text-align:right !important;'>{$LNG.sys_ship_weapon}:</td>
@@ -140,7 +140,7 @@
                                 {/if}
                             </div>
                             <span class="name_unit">{$LNG.shortNames.{$ShipID}}</span><br/>
-                            <span class="tooltip" data-real="{$ShipData[0]|number}" data-tooltip-content="{$ShipData[0]|number}">{pretty_number($ShipData[0])}</span><br/>
+                            <span class="tooltip2m" data-real="{$ShipData[0]|number}" data-tooltip-content="{$ShipData[0]|number}">{pretty_number($ShipData[0])}</span><br/>
                             <span class="destruct_unit">{if $ShipData[4] != 0}-{/if}{$ShipData[4]|number}</span>
                         </div>
                         {/foreach}
@@ -159,7 +159,7 @@
             <h3>{$LNG.sys_attack_round}</h3>
         </div>
         {if !$RoundInfo@last}
-        <div class="band_att tooltip" style="cursor:help !important" data-tooltip-content="{$LNG.fleet_attack_1} {$RoundInfo.info[0]|number} {$LNG.fleet_attack_2} {$RoundInfo.info[3]|number} {$LNG.damage}<br> {$LNG.fleet_defs_1} {$RoundInfo.info[2]|number} {$LNG.fleet_defs_2} {$RoundInfo.info[1]|number} {$LNG.damage}">
+        <div class="band_att tooltip2m" style="cursor:help !important" data-tooltip-content="{$LNG.fleet_attack_1} {$RoundInfo.info[0]|number} {$LNG.fleet_attack_2} {$RoundInfo.info[3]|number} {$LNG.damage}<br> {$LNG.fleet_defs_1} {$RoundInfo.info[2]|number} {$LNG.fleet_defs_2} {$RoundInfo.info[1]|number} {$LNG.damage}">
             <div class="ico_part">
                 <img alt="" title="" src="{$dpath}img/battle/att.png" />
             </div>
@@ -196,7 +196,7 @@
         <h2 style="color:#c77602">{$LNG.sys_both_won}</h2>
         {/if}
     </div>    
-    <div class="band_itog tooltip" style="cursor:help !important" data-tooltip-content="
+    <div class="band_itog tooltip2m" style="cursor:help !important" data-tooltip-content="
     	{$LNG.sys_attacker_lostunits} {$Raport['units'][0]|number} {$LNG.sys_units}<br>
         {$LNG.sys_defender_lostunits} {$Raport['units'][1]|number} {$LNG.sys_units}
     ">

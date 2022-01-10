@@ -21,7 +21,7 @@
                                 <form action="game.php?page=buildings" method="post" class="build_form">
                                     <input type="hidden" name="queuetype" value="1">
                                     <input type="hidden" name="cmd" value="fast">
-                                    <button type="submit" class="build_submit onlist tooltip" data-tooltip-content="{$LNG.cost} {if $need_dm<10}{10}{else}{pretty_number($need_dm)}{/if} {$LNG.tech.921}"  style="float: right; line-height: 43px;">
+                                    <button type="submit" class="build_submit onlist tooltip2m" data-tooltip-content="{$LNG.cost} {if $need_dm<10}{10}{else}{pretty_number($need_dm)}{/if} {$LNG.tech.921}"  style="float: right; line-height: 43px;">
                                         <img src="{$dpath}img/iconav/up.png" alt="" width="16" height="16">
                                     </button>
                                 </form>
@@ -56,7 +56,7 @@
                     <div id="fildes_band_proc" style="width:{$field_percent}%;"></div>
                     <div class="gray_stripe" style="height:0px; padding-right: 0; padding: 0;">
                         {if isModuleAvailable($smarty.const.MODULE_PLANET)}
-                        <a href="game.php?page=planet" class="palanetarium_linck seting2 tooltip" data-tooltip-content="{$LNG.lm_planet}"></a>
+                        <a href="game.php?page=planet" class="palanetarium_linck seting2 tooltip2m" data-tooltip-content="{$LNG.lm_planet}"></a>
                         {/if}
                         <div style="float:left;">{$LNG.lm_buildings}</div>
                         <span class="record_btn ico_star record_btn_active" onclick="build();"></span>
@@ -92,7 +92,7 @@
                                     {foreach $Element.AllTech as $elementID => $requireList}
                                         {foreach $requireList as $requireID => $NeedLevel}
                                         <div class="required_block required_smal_text">
-                                            <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
+                                            <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip2m" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
                                             <img src="{$dpath}gebaeude/{$requireID}.gif" alt="{$LNG.tech.$requireID}" />
                                             <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.own}/{$NeedLevel.count}</div></a>            
                                         </div>
@@ -111,7 +111,7 @@
                                 <div class="res_global_info">
                                 {foreach $Element.ressources as $res}
                                     {if !empty($Element.{$res + $Element.class_production})}
-                                    <div class="res_info info_res_{$res}"><a class="tooltip" data-tooltip-content="
+                                    <div class="res_info info_res_{$res}"><a class="tooltip2m" data-tooltip-content="
                                         <table class='reducefleet_table'>
                                             <tr>
                                                 <td class='reducefleet_img_ship'><img src='{$dpath}img/resources/{$res}f.png'></td>

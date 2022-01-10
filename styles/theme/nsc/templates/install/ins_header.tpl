@@ -53,4 +53,4 @@
 	</script>
 </head>
 <body id="step{$smarty.get.step|htmlspecialchars|default:'intro'}">
-<div id="tooltip" class="tip"></div>
+<div id="tooltip2m" class="tip"></div>
