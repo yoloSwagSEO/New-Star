@@ -3,7 +3,7 @@
         <span>{$LNG.tech.{$Element.id}}</span> 
     </div>
     <div class="content_box" style="padding-right: 3px;">
-        <div class="image hang2 tooltip" {if $Element.speed != 0}data-tooltip-content="{$LNG.fl_fleet_speed} {$Element.speed}"{/if}>
+        <div class="image hang2 tooltip2m" {if $Element.speed != 0}data-tooltip-content="{$LNG.fl_fleet_speed} {$Element.speed}"{/if}>
             <a href="#" onclick="return Dialog.info({$Element.id})"><img src="{$dpath}gebaeude/{$Element.id}.gif" alt="{$Element.id}" /></a>  
         </div>
 		<div class="hang4" id="ship{$Element.id}_value">{$Element.count|number}</div>

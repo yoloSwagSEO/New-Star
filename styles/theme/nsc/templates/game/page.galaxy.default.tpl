@@ -113,19 +113,19 @@
                                 <table class="gl-actions-t">	
                                     <tbody>	
                                         <tr>
-                                        {if $currentPlanet.missions.1}<td><a class="gl-actions-i ri i-mis1 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=1" data-tooltip-content="{$LNG.type_mission_1}"></a></td>{/if}
-                                        {if $currentPlanet.missions.3}<td><a class="gl-actions-i ri i-mis3 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=3" data-tooltip-content="{$LNG.type_mission_3}"></a></td>{/if}
-                                        {if $currentPlanet.missions.4}<td><a class="gl-actions-i ri i-mis4 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=4" data-tooltip-content="{$LNG.type_mission_4}"></a></td>{/if}
-                                        {if $currentPlanet.missions.5}<td><a class="gl-actions-i ri i-mis5 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=5" data-tooltip-content="{$LNG.type_mission_5}"></a></td>{/if}
-                                        {if $currentPlanet.missions.10}<td><a class="gl-actions-i ri i-mis10 tooltip" href="?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}" data-tooltip-content="{$LNG.type_mission_10}"></a></td>{/if}            
-                                        {if $currentPlanet.missions.6}<td><a class="gl-actions-i ri i-mis6 tooltip" href='javascript:doit(6,{$currentPlanet.planet.id});' data-tooltip-content="{$LNG.type_mission_6}"></a></td>{/if}
+                                        {if $currentPlanet.missions.1}<td><a class="gl-actions-i ri i-mis1 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=1" data-tooltip-content="{$LNG.type_mission_1}"></a></td>{/if}
+                                        {if $currentPlanet.missions.3}<td><a class="gl-actions-i ri i-mis3 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=3" data-tooltip-content="{$LNG.type_mission_3}"></a></td>{/if}
+                                        {if $currentPlanet.missions.4}<td><a class="gl-actions-i ri i-mis4 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=4" data-tooltip-content="{$LNG.type_mission_4}"></a></td>{/if}
+                                        {if $currentPlanet.missions.5}<td><a class="gl-actions-i ri i-mis5 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=5" data-tooltip-content="{$LNG.type_mission_5}"></a></td>{/if}
+                                        {if $currentPlanet.missions.10}<td><a class="gl-actions-i ri i-mis10 tooltip2m" href="?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}" data-tooltip-content="{$LNG.type_mission_10}"></a></td>{/if}
+                                        {if $currentPlanet.missions.6}<td><a class="gl-actions-i ri i-mis6 tooltip2m" href='javascript:doit(6,{$currentPlanet.planet.id});' data-tooltip-content="{$LNG.type_mission_6}"></a></td>{/if}
                                         {foreach $currentPlanet.user.class as $class}
                                         {if $class != 'vacation' && $currentPlanet.planet.phalanx}
-                                        <td><a class="gl-actions-i ri i-mis17 tooltip" href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);' data-tooltip-content="{$LNG.gl_phalanx}"></a></td>
+                                        <td><a class="gl-actions-i ri i-mis17 tooltip2m" href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);' data-tooltip-content="{$LNG.gl_phalanx}"></a></td>
                                         {/if}
                                         {foreachelse}
                                         {if $currentPlanet.planet.phalanx}
-                                        <td><a class="gl-actions-i ri i-mis17 tooltip" href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);' data-tooltip-content="{$LNG.gl_phalanx}"></a></td>
+                                        <td><a class="gl-actions-i ri i-mis17 tooltip2m" href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);' data-tooltip-content="{$LNG.gl_phalanx}"></a></td>
                                         {/if}
                                         {/foreach}
                                         </tr>
@@ -138,7 +138,7 @@
                         <div class="gal_planet_name">{$currentPlanet.planet.name} {$currentPlanet.lastActivity} </div>
                         <div class="gal_ico_moon ico_animation">
                         {if $currentPlanet.moon}
-                            <div class="ico_moon tooltip" data-tooltip-content="
+                            <div class="ico_moon tooltip2m" data-tooltip-content="
                                 <table class='tooltip_class_table'>
                                     <tr>
                                         <th colspan='2'>{$LNG.gl_moon} [{$galaxy}:{$system}:{$planet}]</th>
@@ -155,12 +155,12 @@
                                 <table class="gl-actions-t">	
                                     <tbody>
                                         <tr>
-                                            {if $currentPlanet.missions.1}<td><a class="gl-actions-i ri i-mis1 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=1" data-tooltip-content="{$LNG.type_mission_1}"></a></td>{/if}
-                                            {if $currentPlanet.missions.3}<td><a class="gl-actions-i ri i-mis3 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=3" data-tooltip-content="{$LNG.type_mission_3}"></a></td>{/if}
-                                            {if $currentPlanet.missions.4}<td><a class="gl-actions-i ri i-mis4 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=4" data-tooltip-content="{$LNG.type_mission_4}"></a></td>{/if}
-                                            {if $currentPlanet.missions.5}<td><a class="gl-actions-i ri i-mis5 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=5" data-tooltip-content="{$LNG.type_mission_5}"></a></td>{/if}	            
-                                            {if $currentPlanet.missions.6}<td><a class="gl-actions-i ri i-mis6 tooltip" href='javascript:doit(6,{$currentPlanet.moon.id});' data-tooltip-content="{$LNG.type_mission_6}"></a></td>{/if}
-                                            {if $currentPlanet.missions.9}<td><a class="gl-actions-i ri i-mis9 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=9" data-tooltip-content="{$LNG.type_mission_9}"></a></td>{/if}	            
+                                            {if $currentPlanet.missions.1}<td><a class="gl-actions-i ri i-mis1 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=1" data-tooltip-content="{$LNG.type_mission_1}"></a></td>{/if}
+                                            {if $currentPlanet.missions.3}<td><a class="gl-actions-i ri i-mis3 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=3" data-tooltip-content="{$LNG.type_mission_3}"></a></td>{/if}
+                                            {if $currentPlanet.missions.4}<td><a class="gl-actions-i ri i-mis4 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=4" data-tooltip-content="{$LNG.type_mission_4}"></a></td>{/if}
+                                            {if $currentPlanet.missions.5}<td><a class="gl-actions-i ri i-mis5 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=5" data-tooltip-content="{$LNG.type_mission_5}"></a></td>{/if}
+                                            {if $currentPlanet.missions.6}<td><a class="gl-actions-i ri i-mis6 tooltip2m" href='javascript:doit(6,{$currentPlanet.moon.id});' data-tooltip-content="{$LNG.type_mission_6}"></a></td>{/if}
+                                            {if $currentPlanet.missions.9}<td><a class="gl-actions-i ri i-mis9 tooltip2m" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=9" data-tooltip-content="{$LNG.type_mission_9}"></a></td>{/if}
                                         </tr>
                                     </tbody>
                                 </table>
