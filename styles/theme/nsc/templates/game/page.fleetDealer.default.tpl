@@ -15,7 +15,7 @@
                     <div class="buy_sector fleetdealer">        
                         <div class="buy_id">
                             <img class="buy_img" id="img" alt="" data-src="{$dpath}gebaeude/" src="{$dpath}gebaeude/undefined.gif"/>
-                            <div class="buy_img_text tooltip" data-tooltip-content="{$LNG.ft_charge}">{$Charge}%</div>
+                            <div class="buy_img_text tooltip2m" data-tooltip-content="{$LNG.ft_charge}">{$Charge}%</div>
                         </div>
                         <div id="count_calculator">
                             <input class="buy_number" min="0" onchange="Total();" type="text" id="count" name="count" onkeyup="Total();">

@@ -49,15 +49,15 @@
          <div class="rd_planet_resours">
             <div class="imper_block_td">
                <div class="occupancy occupancy_901" style="width:{$ACSRow.metal/$ACSRow.metal_max*100}%"></div>
-               <div class="text_res tooltip" data-tooltip-content="<span class='p_res'>{$LNG.tech.901}:</span> <span style='color:#999'>({$ACSRow.name} [{$ACSRow.galaxy}:{$ACSRow.system}:{$ACSRow.planet}])</span> <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div> <span style='color:#999'>{$ACSRow.metal|number} / {$ACSRow.metal_max|number}</span>"><span> {$LNG.tech.901}:</span> {$ACSRow.metal|number}</div>
+               <div class="text_res tooltip2m" data-tooltip-content="<span class='p_res'>{$LNG.tech.901}:</span> <span style='color:#999'>({$ACSRow.name} [{$ACSRow.galaxy}:{$ACSRow.system}:{$ACSRow.planet}])</span> <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div> <span style='color:#999'>{$ACSRow.metal|number} / {$ACSRow.metal_max|number}</span>"><span> {$LNG.tech.901}:</span> {$ACSRow.metal|number}</div>
             </div>
             <div class="imper_block_td">
                <div class="occupancy occupancy_902" style="width:{$ACSRow.crystal/$ACSRow.crystal_max*100}%"></div>
-               <div class="text_res tooltip" data-tooltip-content="<span class='p_res'>{$LNG.tech.902}:</span> <span style='color:#999'>({$ACSRow.name} [{$ACSRow.galaxy}:{$ACSRow.system}:{$ACSRow.planet}])</span> <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div> <span style='color:#999'>{$ACSRow.crystal|number} / {$ACSRow.crystal_max|number}</span>"> <span> {$LNG.tech.902}:</span> {$ACSRow.crystal|number}</div>
+               <div class="text_res tooltip2m" data-tooltip-content="<span class='p_res'>{$LNG.tech.902}:</span> <span style='color:#999'>({$ACSRow.name} [{$ACSRow.galaxy}:{$ACSRow.system}:{$ACSRow.planet}])</span> <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div> <span style='color:#999'>{$ACSRow.crystal|number} / {$ACSRow.crystal_max|number}</span>"> <span> {$LNG.tech.902}:</span> {$ACSRow.crystal|number}</div>
             </div>
             <div class="imper_block_td">
                <div class="occupancy occupancy_903" style="width:{$ACSRow.deuterium/$ACSRow.deuterium_max*100}%"></div>
-               <div class="text_res tooltip" data-tooltip-content="<span class='p_res'>{$LNG.tech.903}:</span> <span style='color:#999'>({$ACSRow.name} [{$ACSRow.galaxy}:{$ACSRow.system}:{$ACSRow.planet}])</span> <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div> <span style='color:#999'>{$ACSRow.deuterium|number} / {$ACSRow.deuterium_max|number}</span>"><span> {$LNG.tech.903}:</span> {$ACSRow.deuterium|number}</div>
+               <div class="text_res tooltip2m" data-tooltip-content="<span class='p_res'>{$LNG.tech.903}:</span> <span style='color:#999'>({$ACSRow.name} [{$ACSRow.galaxy}:{$ACSRow.system}:{$ACSRow.planet}])</span> <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div> <span style='color:#999'>{$ACSRow.deuterium|number} / {$ACSRow.deuterium_max|number}</span>"><span> {$LNG.tech.903}:</span> {$ACSRow.deuterium|number}</div>
             </div>
          </div>
       </div>

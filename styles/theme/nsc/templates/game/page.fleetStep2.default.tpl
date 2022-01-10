@@ -58,8 +58,8 @@
                     <div {if $mission != 18} style="display:none;"{/if} id="listsector">
                         {foreach $Sector as $IDSector => $rowSector}
                         <div class="label_sector">
-                            <input type="radio" name="sectors" id="sector_{$IDSector}" value="{$IDSector}" class="tooltip" data-tooltip-content="{$LNG.fl_enemy_text.$IDSector}"/>
-                            <label for="sector_{$IDSector}" class="tooltip" data-tooltip-content="{$LNG.fl_enemy_text.$IDSector}">{$rowSector}</label>
+                            <input type="radio" name="sectors" id="sector_{$IDSector}" value="{$IDSector}" class="tooltip2m" data-tooltip-content="{$LNG.fl_enemy_text.$IDSector}"/>
+                            <label for="sector_{$IDSector}" class="tooltip2m" data-tooltip-content="{$LNG.fl_enemy_text.$IDSector}">{$rowSector}</label>
                         </div>
                         {/foreach}    
                     </div>

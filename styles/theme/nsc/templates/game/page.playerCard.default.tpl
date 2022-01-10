@@ -90,8 +90,8 @@
                                                     </div>
                                                     <p class="card-text">{$LNG.pl_totalfight} <span style="float: right;">{$totalfights|number}</span></p>
                                                     <p class="card-text mb-3">{$LNG.op_damage_coef} <span style="float: right;">{$damageCoef}</span></p>
-                                                    <div class="alleanza12 tooltip" data-tooltip-content="{$LNG.pl_unitsshot} {$desunits}" style="width:{$damageDes}%"></div>
-                                                    <div class="alleanza13 tooltip" data-tooltip-content="{$LNG.pl_unitslose} {$lostunits}" style="width:{$damageLost}%"></div>
+                                                    <div class="alleanza12 tooltip2m" data-tooltip-content="{$LNG.pl_unitsshot} {$desunits}" style="width:{$damageDes}%"></div>
+                                                    <div class="alleanza13 tooltip2m" data-tooltip-content="{$LNG.pl_unitslose} {$lostunits}" style="width:{$damageLost}%"></div>
                                                 </div>
                                             </div>
                                         </div>

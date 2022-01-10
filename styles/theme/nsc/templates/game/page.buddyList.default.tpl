@@ -56,7 +56,7 @@
                         <td class="classstat3" style="text-align: left;width: 110px;max-width: 110px;min-width: 110px;"><a href="#" onclick="return Dialog.PM({$myRequestRow.id});">{$myRequestRow.username}</a></td>
                         <td class="classstat8" style="text-align: left;width: 115px;max-width: 115px;min-width: 115px;">{if {$myRequestRow.ally_name}}<a href="game.php?page=alliance&amp;mode=info&amp;id={$myRequestRow.ally_id}">{$myRequestRow.ally_name}</a>{else}-{/if}</td>
                         <td class="classstat8" style="text-align: left;width: 115px;max-width: 115px;min-width: 115px;"><a href="game.php?page=galaxy&amp;galaxy={$myRequestRow.galaxy}&amp;system={$myRequestRow.system}">[{$myRequestRow.galaxy}:{$myRequestRow.system}:{$myRequestRow.planet}]</a></td>
-                        <td class="classstat8 tooltip" style="text-align: left;width: 110px;max-width: 110px;min-width: 110px;overflow: hidden; white-space: nowrap;">{$myRequestRow.text}</td>
+                        <td class="classstat8 tooltip2m" style="text-align: left;width: 110px;max-width: 110px;min-width: 110px;overflow: hidden; white-space: nowrap;">{$myRequestRow.text}</td>
                         <td class="classstat8" style="text-align: right;width: 145px;max-width: 145px;min-width: 145px;"><a href="game.php?page=buddyList&amp;mode=delete&amp;id={$myRequestID}" style="width: auto;float: right;"><img src="{$dpath}img/general/false.png" alt="{$LNG.bu_cancel_request}" title="{$LNG.bu_cancel_request}"></a></td>
                     </tr>
                     {foreachelse}
@@ -80,7 +80,7 @@
                         <td class="classstat3" style="text-align: left;width: 110px;max-width: 110px;min-width: 110px;"><a href="#" onclick="return Dialog.PM({$myBuddyRow.id});">{$myBuddyRow.username}</a></td>
                         <td class="classstat8" style="text-align: left;width: 115px;max-width: 115px;min-width: 115px;">{if {$myBuddyRow.ally_name}}<a href="game.php?page=alliance&amp;mode=info&amp;id={$myBuddyRow.ally_id}">{$myBuddyRow.ally_name}</a>{else}-{/if}</td>
                         <td class="classstat8" style="text-align: left;width: 115px;max-width: 115px;min-width: 115px;"><a href="game.php?page=galaxy&amp;galaxy={$myBuddyRow.galaxy}&amp;system={$myBuddyRow.system}">[{$myBuddyRow.galaxy}:{$myBuddyRow.system}:{$myBuddyRow.planet}]</a></td>
-                        <td class="classstat8 tooltip" style="text-align: left;width: 110px;max-width: 110px;min-width: 110px;overflow: hidden; white-space: nowrap;">
+                        <td class="classstat8 tooltip2m" style="text-align: left;width: 110px;max-width: 110px;min-width: 110px;overflow: hidden; white-space: nowrap;">
                         {if $myBuddyRow.onlinetime < 4}
                             <span style="color:lime">{$LNG.bu_connected}</span>
                         {elseif $myBuddyRow.onlinetime >= 4 && $myBuddyRow.onlinetime <= 15}

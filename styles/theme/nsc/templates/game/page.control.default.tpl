@@ -20,13 +20,13 @@
 <div class="gray_stripe">
    <div class="imper_left_part">
     {if isModuleAvailable($smarty.const.MODULE_REDUCE_RESOURCES)}
-      <a href="game.php?page=reduceResources" class="fleet_reduce1 ico_reduceresources tooltip" data-tooltip-content="{$LNG['lm_reduceresources']}"></a>
+      <a href="game.php?page=reduceResources" class="fleet_reduce1 ico_reduceresources tooltip2m" data-tooltip-content="{$LNG['lm_reduceresources']}"></a>
     {/if}
     {if isModuleAvailable($smarty.const.MODULE_REDUCE_FLEET)}
-      <a href="game.php?page=reduceFleet" class="fleet_reduce1 ico_reducefleet tooltip" data-tooltip-content="{$LNG['lm_reducefleet']}"></a>
+      <a href="game.php?page=reduceFleet" class="fleet_reduce1 ico_reducefleet tooltip2m" data-tooltip-content="{$LNG['lm_reducefleet']}"></a>
     {/if}
     {if isModuleAvailable($smarty.const.MODULE_DELIVERY)}
-      <a href="game.php?page=delivery" class="fleet_reduce1 ico_deliveryres tooltip" data-tooltip-content="{$LNG['lm_delivery']}"></a>
+      <a href="game.php?page=delivery" class="fleet_reduce1 ico_deliveryres tooltip2m" data-tooltip-content="{$LNG['lm_delivery']}"></a>
     {/if}
    </div>
    <div class="imper_right_part">

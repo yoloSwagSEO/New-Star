@@ -123,7 +123,7 @@
                                 {/foreach}
                                 {foreach $Element.storage as $res}
                                     {if !empty($Element.{$res + $Element.class_storage})}
-                                    <div class="res_info info_res_{$res}"><a class="tooltip" data-tooltip-content="
+                                    <div class="res_info info_res_{$res}"><a class="tooltip2m" data-tooltip-content="
                                         <table class='reducefleet_table'>
                                             <tr>
                                                 <td class='reducefleet_img_ship'><img src='{$dpath}img/resources/{$res}f.png'></td>
