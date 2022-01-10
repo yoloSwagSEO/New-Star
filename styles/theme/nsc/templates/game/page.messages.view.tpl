@@ -53,11 +53,11 @@
                     {if $MessID != 999}<input name="messageID[{$Message.id}]" value="1" type="checkbox">{/if}                    
                 </div>
             </div>
-            <div class="message_title">
+            <div class="message_title" onclick="Message.getMessage({$Message.id})">
                 <span class="message_recipient_name">{$Message.from}</span>
             </div>
         </div>
-        <div class="messages_body">
+        <div class="messages_body hide" id="message-body_{$Message.id}">
             <div colspan="4" class="left" style="padding:0;">
                 <div class="message_text">{$Message.text}</div>
             </div>
