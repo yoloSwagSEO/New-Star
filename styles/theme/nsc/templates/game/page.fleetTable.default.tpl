@@ -39,25 +39,30 @@
                 <input type="hidden" name="target_mission" value="{$targetMission}">
                 <div id="build_elements" style=" margin:0">
                     <div class="gray_ship1">
+                        <div class="row">
                         {foreach $elementListM as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}
                         {include file="page.fleetTable.item.tpl"}
                         {/foreach}
-                        
+                        </div>
+                        <div class="row">
                         {foreach $elementListP as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}
                         {include file="page.fleetTable.item.tpl"}
                         {/foreach}
-                        
+                        </div>
+                        <div class="row">
                         {foreach $elementListO as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}
                         {include file="page.fleetTable.item.tpl"}
                         {/foreach}
-                        
+                        </div>
+                        <div class="row">
                         {foreach $elementListD as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}
                         {include file="page.fleetTable.item.tpl"}
                         {/foreach}
+                        </div>
                     </div>
                 </div>  
                 <div class="alleanza57"></div>

@@ -352,7 +352,7 @@ class ShowFleetTablePage extends AbstractGamePage
 			if(in_array($FleetID, $elem[1]))
 			{
 				$elementListM[$FleetID]	= array(
-					'name'	=> '<div class="gray_ship2">'.$LNG['fl_grop_1'].'       
+					'name'	=> '<div class="gray_ship2 col-12">'.$LNG['fl_grop_1'].'       
                                     <a href="javascript:maxShipsBatle();" class="fl_max_ships">Max</a>		 
                                     <a href="javascript:noShipsBatle();" class="fl_min_ships">Min</a>
                                 </div>',
@@ -364,7 +364,7 @@ class ShowFleetTablePage extends AbstractGamePage
 			elseif(in_array($FleetID, $elem[2]))
 			{
 				$elementListP[$FleetID]	= array(
-					'name'	=> '<div class="gray_ship2">'.$LNG['fl_grop_2'].'   
+					'name'	=> '<div class="gray_ship2 col-12">'.$LNG['fl_grop_2'].'   
                                     <a href="javascript:maxShipsTransports();" class="fl_max_ships">Max</a>		 
                                     <a href="javascript:noShipsTransports();" class="fl_min_ships">Min</a>
                                 </div>',
@@ -376,7 +376,7 @@ class ShowFleetTablePage extends AbstractGamePage
 			elseif(in_array($FleetID, $elem[3]))
 			{
 				$elementListO[$FleetID]	= array(
-					'name'	=> '<div class="gray_ship2">'.$LNG['fl_grop_3'].'       
+					'name'	=> '<div class="gray_ship2 col-12">'.$LNG['fl_grop_3'].'       
                                     <a href="javascript:maxShipsProcessors();" class="fl_max_ships">Max</a>		 
                                     <a href="javascript:noShipsProcessors();" class="fl_min_ships">Min</a>
                                 </div>',
@@ -388,7 +388,7 @@ class ShowFleetTablePage extends AbstractGamePage
 			elseif(in_array($FleetID, $elem[4]))
 			{
 				$elementListD[$FleetID]	= array(
-					'name'	=> '<div class="gray_ship2">'.$LNG['fl_grop_4'].'       
+					'name'	=> '<div class="gray_ship2 col-12">'.$LNG['fl_grop_4'].'       
                                     <a href="javascript:maxShipsSpecial();" class="fl_max_ships">Max</a>		 
                                     <a href="javascript:noShipsSpecial();" class="fl_min_ships">Min</a>
                                 </div>',
