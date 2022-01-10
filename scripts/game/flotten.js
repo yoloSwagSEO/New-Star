@@ -263,18 +263,15 @@ function noShip(id) {
 }
 
 function noShips() {
-    var id;
-    for (i = 200; i < 250; i++) {
-        id = "ship" + i;
-        noShip(id);
-    }
-    colorSet();
-    fleetPoints();
+    noShipsBatle();
+    noShipsTransports();
+    noShipsProcessors();
+    noShipsSpecial();
 }
 
 function noShipsBatle() {
     var id;
-    for (i = 200; i < 250; i++) {
+    for (i = 200; i < 299; i++) {
         id = "ship" + i;
         if (i != 202 && i != 203 && i != 217 && i != 209 && i != 219 && i != 208 && i != 210 && i != 220 && i != 223)
             noShip(id);
