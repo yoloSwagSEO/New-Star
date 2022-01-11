@@ -22,9 +22,6 @@
                         {if $MissionID == 18}
                         <div class="fl_mission_selector_caution">{$LNG.fl_expedition_alert_message}</div>
                         {/if}
-                        {if $MissionID == 11}
-                        <div class="fl_mission_selector_caution">{$LNG.fl_dm_alert_message}</div>
-                        {/if}
                         {/foreach}
                     </div>
 			        <div class="fleetstep2-1">	

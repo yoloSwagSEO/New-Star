@@ -51,7 +51,6 @@ class ShowFleetStep3Page extends AbstractGamePage
 			unset($_SESSION['fleet'][$token]);
 			FleetFunctions::GotoFleetPage(0);
 		}
-
 		$formData		= $_SESSION['fleet'][$token];
         unset($_SESSION['fleet'][$token]);
 
@@ -72,7 +71,6 @@ class ShowFleetStep3Page extends AbstractGamePage
                 'url'	=> 'game.php?page=fleetStep1'
 		    )));
 		}
-		
 		if($targetMission != 2)
 		{
 			$fleetGroup	= 0;
@@ -85,7 +83,6 @@ class ShowFleetStep3Page extends AbstractGamePage
 				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
-
 		if ($targetGalaxy < 1 || $targetGalaxy > $config->max_galaxy || 
 			$targetSystem < 1 || $targetSystem > $config->max_system || 
 			$targetPlanet < 1 || $targetPlanet > ($config->max_planets + 1) ||
@@ -95,7 +92,6 @@ class ShowFleetStep3Page extends AbstractGamePage
 				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
-
 		if ($targetMission == 3 && $TransportMetal + $TransportCrystal + $TransportDeuterium < 1)
 		{
 			$this->printMessage($LNG['fl_no_noresource'], array(array(
@@ -141,7 +137,6 @@ class ShowFleetStep3Page extends AbstractGamePage
             ':targetPlanet' => $targetPlanet,
             ':targetType' => ($targetType == 2 ? 1 : $targetType),
         ));
-
 		if ($targetMission == 7)
 		{
 			if (!empty($targetPlanetData)) {
@@ -159,7 +154,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			}
 		}
 		
-		if ($targetMission == 7 || $targetMission == 15 || $targetMission == 18)
+		if ($targetMission == 7 || $targetMission == 15 || $targetMission == 18 || $targetMission == 11)
 		{
 			$targetPlanetData	= array('id' => 0, 'id_owner' => 0, 'planettype' => 1);
 		}
@@ -171,7 +166,6 @@ class ShowFleetStep3Page extends AbstractGamePage
 					'url'	=> 'game.php?page=fleetStep1'
 				)));
 			}
-				
 			if (empty($targetPlanetData)) {
 				$this->printMessage($LNG['fl_no_target'], array(array(
 					'label'	=> $LNG['sys_back'],
@@ -189,7 +183,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 				)));
 			}
 		}
-		
+
 		if ($targetMission == 11)
 		{
 			$activeExpedition	= FleetFunctions::GetCurrentFleets($USER['id'], 11, true);
@@ -215,12 +209,11 @@ class ShowFleetStep3Page extends AbstractGamePage
 				)));
 			}
 		}
-
 		$usedPlanet	= isset($targetPlanetData['id_owner']);
 		$myPlanet	= $usedPlanet && $targetPlanetData['id_owner'] == $USER['id'];
 		$targetPlayerData	= array();
 
-		if($targetMission == 7 || $targetMission == 15 || $targetMission == 18) {
+		if($targetMission == 7 || $targetMission == 15 || $targetMission == 18 || $targetMission == 11) {
 			$targetPlayerData	= array(
 				'id'				=> 0,
 				'onlinetime'		=> TIMESTAMP,

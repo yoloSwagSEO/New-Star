@@ -265,6 +265,9 @@ $LNG['tech'] = array(
     131 => 'Mineral Research',
     132 => 'Semi-Crystals Research',
     133 => 'Fuel Research',
+
+    134 => 'Archéologie',
+
     199 => 'Graviton Research',
 
     200 => 'Ships',
@@ -338,6 +341,7 @@ $LNG['tech'] = array(
     266 => 'Dragon',
     230 => 'M-32',
     267 => 'Predator',
+    268 => 'Prospecteur',
 
     400 => 'Planetary Defense',
     401 => 'Missile Launcher',
@@ -678,6 +682,7 @@ $LNG['longDescription'] = array(
     131 => 'Increases the production of Metal by 2%',
     132 => 'Increases the production of Crystal by 2%',
     133 => 'Increases the production of Deuterium by 2%',
+    134 => 'Archéologie',
     199 => 'Firing a concentrated charge of graviton particles can create an artificial gravity field, which can destroy ships or even moons.',
 
     202 => 'The light cargo is an agile ship which can quickly transport resources to other planets.',
@@ -746,6 +751,7 @@ $LNG['longDescription'] = array(
     266 => '',
     230 => '',
     267 => '',
+    268 => 'Prospecteur',
 
     401 => 'The Rocket Launcher is a simple but cost-effective defense.',
     402 => 'Light Lasers are simple ground based weapons that utilize special targeting systems to track the enemy and fire a high intensity laser designed to cut through the hull of the target.',

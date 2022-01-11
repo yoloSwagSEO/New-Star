@@ -72,7 +72,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 		$MisInfo['Ship'] 			= $fleetArray;	
 		
 		$MissionOutput	 			= FleetFunctions::GetFleetMissions($USER, $MisInfo, $targetPlanetData);
-		
+
 		if(empty($MissionOutput['MissionSelector']))
 		{
 			$this->printMessage($LNG['fl_empty_target'], array(array(

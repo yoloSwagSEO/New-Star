@@ -434,6 +434,8 @@ class FleetFunctions
 			if (!$UsedPlanet) {
 				if (isset($MissionInfo['Ship'][208]) && $MissionInfo['planettype'] == 1 && isModuleAvailable(MODULE_MISSION_COLONY))
 					$availableMissions[]	= 7;
+                if ($MissionInfo['planettype'] == 1 && self::OnlyShipByID($MissionInfo['Ship'], 268))
+                    $availableMissions[]	= 11;
 			} else {
 				if(isModuleAvailable(MODULE_MISSION_TRANSPORT))
 					$availableMissions[]	= 3;
@@ -456,11 +458,8 @@ class FleetFunctions
 				if (!$YourPlanet && $MissionInfo['planettype'] == 3 && isset($MissionInfo['Ship'][214]) && isModuleAvailable(MODULE_MISSION_DESTROY))
 					$availableMissions[]	= 9;
 
-				if ($YourPlanet && $MissionInfo['planettype'] == 3 && self::OnlyShipByID($MissionInfo['Ship'], 220) && isModuleAvailable(MODULE_MISSION_DARKMATTER))
-					$availableMissions[]	= 11;
 			}
 		}
-		
 		return $availableMissions;
 	}
 	
