@@ -14,6 +14,8 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+use Florian\NewStar\enums\MissionsEnum as Mission;
+use Florian\NewStar\enums\PlanetTypeEnum as Planet;
 
 class ShowFleetStep3Page extends AbstractGamePage
 {
@@ -32,7 +34,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			FleetFunctions::GotoFleetPage(0);
 		}
 		
-		$targetMission 			= HTTP::_GP('mission', 3);
+		$targetMission 			= HTTP::_GP('mission', Mission::TRANSPORT);
 		$TransportMetal			= max(0, round(HTTP::_GP('metal', 0.0)));
 		$TransportCrystal		= max(0, round(HTTP::_GP('crystal', 0.0)));
 		$TransportDeuterium		= max(0, round(HTTP::_GP('deuterium', 0.0)));
@@ -71,7 +73,7 @@ class ShowFleetStep3Page extends AbstractGamePage
                 'url'	=> 'game.php?page=fleetStep1'
 		    )));
 		}
-		if($targetMission != 2)
+		if($targetMission != Mission::ACS)
 		{
 			$fleetGroup	= 0;
 		}
@@ -86,13 +88,13 @@ class ShowFleetStep3Page extends AbstractGamePage
 		if ($targetGalaxy < 1 || $targetGalaxy > $config->max_galaxy || 
 			$targetSystem < 1 || $targetSystem > $config->max_system || 
 			$targetPlanet < 1 || $targetPlanet > ($config->max_planets + 1) ||
-			($targetType !== 1 && $targetType !== 2 && $targetType !== 3)) {
+			($targetType !== Planet::PLANET && $targetType !== Planet::DEBRIS && $targetType !== Planet::MOON)) {
 			$this->printMessage($LNG['fl_invalid_target'], array(array(
 				'label'	=> $LNG['sys_back'],
 				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
-		if ($targetMission == 3 && $TransportMetal + $TransportCrystal + $TransportDeuterium < 1)
+		if ($targetMission == Mission::TRANSPORT && $TransportMetal + $TransportCrystal + $TransportDeuterium < 1)
 		{
 			$this->printMessage($LNG['fl_no_noresource'], array(array(
 				'label'	=> $LNG['sys_back'],
@@ -125,7 +127,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 
             if (empty($ACSTime)) {
 				$fleetGroup	= 0;
-				$targetMission	= 1;
+				$targetMission	= Mission::ATTAQUE;
 			}
 		}
 
@@ -135,9 +137,9 @@ class ShowFleetStep3Page extends AbstractGamePage
             ':targetGalaxy' => $targetGalaxy,
             ':targetSystem' => $targetSystem,
             ':targetPlanet' => $targetPlanet,
-            ':targetType' => ($targetType == 2 ? 1 : $targetType),
+            ':targetType' => ($targetType == Planet::DEBRIS ? Planet::PLANET : $targetType),
         ));
-		if ($targetMission == 7)
+		if ($targetMission == Mission::COLONIZE)
 		{
 			if (!empty($targetPlanetData)) {
 				$this->printMessage($LNG['fl_target_exists'], array(array(
@@ -146,7 +148,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 				)));
 			}
 			
-			if ($targetType != 1) {
+			if ($targetType != Planet::PLANET) {
 				$this->printMessage($LNG['fl_only_planets_colonizable'], array(array(
 					'label'	=> $LNG['sys_back'],
 					'url'	=> 'game.php?page=fleetStep1'
@@ -154,9 +156,9 @@ class ShowFleetStep3Page extends AbstractGamePage
 			}
 		}
 		
-		if ($targetMission == 7 || $targetMission == 15 || $targetMission == 18 || $targetMission == 11)
+		if ($targetMission == Mission::COLONIZE || $targetMission == Mission::EXPEDITION || $targetMission == Mission::WAR_EXPEDITION || $targetMission == Mission::PROSPECT)
 		{
-			$targetPlanetData	= array('id' => 0, 'id_owner' => 0, 'planettype' => 1);
+			$targetPlanetData	= array('id' => 0, 'id_owner' => 0, 'planettype' => Planet::PLANET);
 		}
 		else
 		{
@@ -184,9 +186,9 @@ class ShowFleetStep3Page extends AbstractGamePage
 			}
 		}
 
-		if ($targetMission == 11)
+		if ($targetMission == Mission::PROSPECT)
 		{
-			$activeExpedition	= FleetFunctions::GetCurrentFleets($USER['id'], 11, true);
+			$activeExpedition	= FleetFunctions::GetCurrentFleets($USER['id'], Mission::PROSPECT, true);
 			$maxExpedition		= FleetFunctions::getDMMissionLimit($USER);
 
 			if ($activeExpedition >= $maxExpedition) {
@@ -196,7 +198,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 				)));
 			}
 		}
-		elseif ($targetMission == 15 || $targetMission == 18)
+		elseif ($targetMission == Mission::EXPEDITION || $targetMission == Mission::WAR_EXPEDITION)
 		{		
 			$activeExpedition	= FleetFunctions::GetCurrentFleets($USER['id'], 15, true);
             $activeExpedition  += FleetFunctions::GetCurrentFleets($USER['id'], 18, true);
@@ -213,7 +215,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		$myPlanet	= $usedPlanet && $targetPlanetData['id_owner'] == $USER['id'];
 		$targetPlayerData	= array();
 
-		if($targetMission == 7 || $targetMission == 15 || $targetMission == 18 || $targetMission == 11) {
+		if($targetMission == Mission::COLONIZE || $targetMission == Mission::EXPEDITION || $targetMission == Mission::WAR_EXPEDITION || $targetMission == Mission::PROSPECT) {
 			$targetPlayerData	= array(
 				'id'				=> 0,
 				'onlinetime'		=> TIMESTAMP,
@@ -261,14 +263,14 @@ class ShowFleetStep3Page extends AbstractGamePage
 			)));
 		}
 		
-		if ($targetMission != 8 && IsVacationMode($targetPlayerData)) {
+		if ($targetMission != Mission::RECICLE && IsVacationMode($targetPlayerData)) {
 			$this->printMessage($LNG['fl_target_exists'], array(array(
 				'label'	=> $LNG['sys_back'],
 				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
 		
-		if($targetMission == 1 || $targetMission == 2 || $targetMission == 9) {
+		if($targetMission == Mission::ATTAQUE || $targetMission == Mission::ACS || $targetMission == Mission::DESTROY) {
 			if(FleetFunctions::CheckBash($targetPlanetData['id']))
 			{
 				$this->printMessage($LNG['fl_bash_protection'], array(array(
@@ -278,7 +280,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			}
 		}
 		
-		if($targetMission == 1 || $targetMission == 2 || $targetMission == 5 || $targetMission == 6 || $targetMission == 9)
+		if($targetMission == Mission::ATTAQUE || $targetMission == Mission::ACS || $targetMission == Mission::TRANSFER || $targetMission == Mission::SPY || $targetMission == Mission::DESTROY)
 		{
 			if(Config::get()->adm_attack == 1 && $targetPlayerData['authattack'] > $USER['authlevel'])
 			{
@@ -315,7 +317,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			}
 		}
 
-		if ($targetMission == 5)
+		if ($targetMission == Mission::TRANSFER)
 		{	
 			if($targetPlayerData['ally_id'] != $USER['ally_id'] || $USER['ally_id'] == 0) {
 				$sql = "SELECT COUNT(*) as state FROM %%BUDDY%%
@@ -349,7 +351,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		
 		$StayDuration    = 0;
 		
-		if($targetMission == 5 || $targetMission == 11 || $targetMission == 15 || $targetMission == 18)
+		if($targetMission == Mission::TRANSFER || $targetMission == Mission::PROSPECT || $targetMission == Mission::EXPEDITION || $targetMission == Mission::WAR_EXPEDITION)
 		{
 			if(!isset($availableMissions['StayBlock'][$stayTime]))
 			{

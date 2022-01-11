@@ -14,6 +14,7 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+use Florian\NewStar\enums\MissionsEnum as Mission;
 
 class ShowOverviewPage extends AbstractGamePage
 {
@@ -254,7 +255,7 @@ class ShowOverviewPage extends AbstractGamePage
         $fleetResult = $db->select($sql, array(
             ':userID'   => $USER['id']
         ));
-        
+
         $activeFleetSlots	    = $db->rowCount();
         $maxFleetSlots	        = FleetFunctions::GetMaxFleetSlots($USER);
         $techExpedition         = $USER[$resource[124]];

@@ -14,6 +14,9 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+use Florian\NewStar\enums\MissionsEnum as Mission;
+use Florian\NewStar\enums\PlanetTypeEnum as Planet;
+
 
 class ShowFleetStep2Page extends AbstractGamePage
 {
@@ -33,8 +36,8 @@ class ShowFleetStep2Page extends AbstractGamePage
 		$targetGalaxy  				= HTTP::_GP('galaxy', 0);
 		$targetSystem   			= HTTP::_GP('system', 0);
 		$targetPlanet   			= HTTP::_GP('planet', 0);
-		$targetType 				= HTTP::_GP('type', 0);
-		$targetMission 				= HTTP::_GP('target_mission', 0);
+		$targetType 				= HTTP::_GP('type', Planet::NOTYPE);
+		$targetMission 				= HTTP::_GP('target_mission', Mission::NO_MISSION);
 		$fleetSpeed  				= HTTP::_GP('speed', 0);		
 		$fleetGroup 				= HTTP::_GP('fleet_group', 0);
 		$token						= HTTP::_GP('token', '');
@@ -55,7 +58,7 @@ class ShowFleetStep2Page extends AbstractGamePage
             ':targetPlanet' => $targetPlanet
         ));
 
-        if($targetType == 2 && $targetPlanetData['der_metal'] == 0 && $targetPlanetData['der_crystal'] == 0)
+        if($targetType == Planet::DEBRIS && $targetPlanetData['der_metal'] == 0 && $targetPlanetData['der_crystal'] == 0)
 		{
 			$this->printMessage($LNG['fl_error_empty_derbis'], array(array(
 				'label'	=> $LNG['sys_back'],
@@ -111,7 +114,7 @@ class ShowFleetStep2Page extends AbstractGamePage
         $_SESSION['fleet'][$token]['ownPlanet']		= $PLANET['id'];
 		
 		if(!empty($fleet_group))
-			$targetMission	= 2;
+			$targetMission	= Mission::ACS;
 
 		$fleetData	= array(
 			'fleetroom'			=> floatToString($_SESSION['fleet'][$token]['fleetRoom']),

@@ -14,6 +14,8 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+use Florian\NewStar\enums\MissionsEnum as Mission;
+use Florian\NewStar\enums\PlanetTypeEnum as Planet;
 
 class FleetFunctions 
 {
@@ -178,24 +180,24 @@ class FleetFunctions
         $Sector		= array();
 		$haltSpeed	= Config::get($USER['universe'])->halt_speed;
 
-		if ((in_array(15, $Missions)) || in_array(18, $Missions)) {
+		if ((in_array(Mission::EXPEDITION, $Missions)) || in_array(Mission::WAR_EXPEDITION, $Missions)) {
 			for($i = 1;$i <= $USER[$resource[124]];$i++)
 			{
 				$stayBlock[$i]	= round($i / $haltSpeed, 2);
 			}
             
-            if(in_array(18, $Missions))
+            if(in_array(Mission::WAR_EXPEDITION, $Missions))
 			{
 				foreach ($SectorME as $ID)
 					$Sector[$ID] = $LNG['fl_enemy'][$ID];
 			}
             
 		}
-		elseif(in_array(11, $Missions)) 
+		elseif(in_array(Mission::PROSPECT, $Missions))
 		{
 			$stayBlock = array(1 => 2 / $haltSpeed, 2 => 4 / $haltSpeed, 3 => 6 / $haltSpeed, 4 => 8 / $haltSpeed);
 		}
-		elseif(in_array(5, $Missions)) 
+		elseif(in_array(Mission::TRANSFER, $Missions))
 		{
 			$stayBlock = array(1 => 1, 2 => 2, 4 => 4, 8 => 8, 12 => 12, 16 => 16, 32 => 32);
 		}
