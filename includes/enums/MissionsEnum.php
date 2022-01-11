@@ -3,6 +3,7 @@ namespace Florian\NewStar\enums;
 
 class MissionsEnum
 {
+    public const NO_MISSION = 0;
     public const ATTAQUE = 1;
     public const ACS = 2;
     public const TRANSPORT = 3;
