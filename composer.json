@@ -1,0 +1,17 @@
+{
+    "name": "florian/new-star",
+    "description": "test",
+    "autoload": {
+        "psr-4": {
+            "Florian\\NewStar\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Florian",
+            "email": "erosdevfr@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
