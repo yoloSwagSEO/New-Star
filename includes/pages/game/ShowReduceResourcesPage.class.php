@@ -15,7 +15,7 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-require_once(ROOT_PATH . 'includes/classes/class.FleetFunctions.php');
+//require_once(ROOT_PATH . 'includes/classes/class.FleetFunctions.php');
 
 class ShowReduceResourcesPage extends AbstractGamePage
 {

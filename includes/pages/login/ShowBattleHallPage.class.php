@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Database;
+
 class ShowBattleHallPage extends AbstractLoginPage
 {
 	public static $requireModule = 0;

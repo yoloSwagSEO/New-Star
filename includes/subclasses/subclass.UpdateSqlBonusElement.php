@@ -16,6 +16,8 @@
  */
 
 //$new_code
+use Florian\NewStar\classes\Database;
+
 if(isset($BonusElement[$Element]))
 {
     foreach($BonusElement[$Element] as $ID => $Count)

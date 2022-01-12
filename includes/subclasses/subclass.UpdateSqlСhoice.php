@@ -16,6 +16,8 @@
  */
 
 //$new_code
+use Florian\NewStar\classes\Database;
+
 foreach($reslist[$mode] as $Elements)
 { 
     $sql	= 'UPDATE %%USERS%% SET

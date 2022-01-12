@@ -14,59 +14,37 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+namespace Florian\NewStar\classes\cache\builder;
 
-class ArrayUtil
+use DirectoryIterator;
+use Florian\NewStar\classes\cache\builder\BuildCache;
+class LanguageBuildCache implements BuildCache
 {
-	static public function combineArrayWithSingleElement($keys, $var)
+	public function buildCache()
 	{
-		if(empty($keys))
+		$languagePath	= ROOT_PATH.'language/';
+		
+		$languages	= array();
+		
+		/** @var $fileInfo SplFileObject */
+		foreach (new DirectoryIterator($languagePath) as $fileInfo)
 		{
-			return array();
-		}
-		return array_combine($keys, array_fill(0, count($keys), $var));
-	}
+			if(!$fileInfo->isDir() || $fileInfo->isDot()) continue;
 
-	static public function combineArrayWithKeyElements($keys, $var)
-	{
-		$temp	= array();
-		foreach($keys as $key)
-		{
-			if(isset($var[$key]))
+			$Lang	= $fileInfo->getBasename();
+
+			if(!file_exists($languagePath.$Lang.'/LANG.cfg')) continue;
+
+			// Fixed BOM problems.
+			ob_start();
+			$path	 = $languagePath.$Lang.'/LANG.cfg';
+			require $path;
+			ob_end_clean();
+			if(isset($Language['name']))
 			{
-				$temp[$key]	= $var[$key];
-			}
-			else
-			{
-				$temp[$key]	= $key;
-			}
-		}
-		
-		return $temp;
-	}
-	
-	// http://www.php.net/manual/en/function.array-key-exists.php#81659
-	static public function arrayKeyExistsRecursive($needle, $haystack)
-	{
-		$result = array_key_exists($needle, $haystack);
-		
-		if ($result)
-		{
-			return $result;
-		}
-		
-		foreach ($haystack as $v)
-		{
-			if (is_array($v))
-			{
-				$result = self::arrayKeyExistsRecursive($needle, $v);
-			}
-			
-			if ($result)
-			{
-				return $result;
+				$languages[$Lang]	= $Language['name'];
 			}
 		}
-		
-		return $result;
+		return $languages;
 	}
 }

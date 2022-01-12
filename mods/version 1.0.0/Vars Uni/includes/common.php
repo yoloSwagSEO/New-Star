@@ -15,6 +15,8 @@
  * @link https://github.com/jkroepke/2Moons
  */
 
+use Florian\NewStar\classes\Database;
+
 if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {
 	exit('You cannot set the GLOBALS-array from outside the script.');
 }

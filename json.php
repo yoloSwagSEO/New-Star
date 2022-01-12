@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Database;
+
 define('MODE', 'JSON');
 define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');
 

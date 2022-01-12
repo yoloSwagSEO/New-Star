@@ -14,6 +14,8 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+namespace Florian\NewStar\classes\cache\resource;
+
 
 class CacheFile {
 	private $path;

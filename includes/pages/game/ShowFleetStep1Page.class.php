@@ -15,7 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-require_once('includes/classes/class.FleetFunctions.php');
+//require_once('includes/classes/class.FleetFunctions.php');
+
+use Florian\NewStar\classes\Database;
 
 class ShowFleetStep1Page extends AbstractGamePage
 {

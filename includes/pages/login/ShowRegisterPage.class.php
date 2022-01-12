@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Database;
+
 class ShowRegisterPage extends AbstractLoginPage
 {
 	function __construct() 

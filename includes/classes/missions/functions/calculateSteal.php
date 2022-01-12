@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Database;
+
 function calculateSteal($attackFleets, $defenderPlanet, $simulate = false)
 {	
 	// See: http://www.owiki.de/Beute
@@ -100,4 +102,3 @@ function calculateSteal($attackFleets, $defenderPlanet, $simulate = false)
 	
 	return $stealResource;
 }
-	

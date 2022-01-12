@@ -14,6 +14,8 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+use Florian\NewStar\classes\ArrayUtil;
+use Florian\NewStar\classes\Database;
 
 function getPlanetsHIDDEN($USER){
     global $resource, $pricelist, $reslist;
@@ -594,9 +596,9 @@ function exceptionHandler($exception)
 	{
 		try
 		{
-			$config		= Config::get();
-			$gameName	= $config->game_name;
-			$VERSION	= $config->VERSION;
+			//$config		= Config::get();
+			//$gameName	= $config->game_name;
+			//$VERSION	= $config->VERSION;
 		} catch(ErrorException $e) {
 		}
 	}

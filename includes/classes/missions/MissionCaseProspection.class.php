@@ -1,5 +1,7 @@
 <?php
 
+use Florian\NewStar\classes\Database;
+
 class MissionCaseProspection extends MissionFunctions implements Mission{
 
     function __construct($fleet)

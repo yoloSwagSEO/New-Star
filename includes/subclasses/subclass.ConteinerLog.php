@@ -16,6 +16,8 @@
  */
 
 //$new_code
+use Florian\NewStar\classes\Database;
+
 $sql = "INSERT INTO %%CONT%% (id_owner,time,item,count,factor) VALUES (:id_owner,:time,:item,:count,:factor);";
 Database::get()->insert($sql, array(
     ':id_owner'	    => $USER['id'],

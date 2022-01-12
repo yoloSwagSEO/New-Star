@@ -15,7 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-class ShowBonusPage extends AbstractGamePage 
+use Florian\NewStar\classes\Database;
+
+class ShowBonusPage extends AbstractGamePage
 {
 	public static $requireModule = MODULE_BONUS;
     

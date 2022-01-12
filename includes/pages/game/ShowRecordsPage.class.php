@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Database;
+
 class ShowRecordsPage extends AbstractGamePage
 {
     public static $requireModule = MODULE_RECORDS;
@@ -73,4 +75,3 @@ class ShowRecordsPage extends AbstractGamePage
 		$this->display('page.records.default.tpl');
 	}
 }
- 

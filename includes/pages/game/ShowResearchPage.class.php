@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Database;
+
 require_once('AbstractGamePage.class.php');
 
 class ShowResearchPage extends AbstractGamePage

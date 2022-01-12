@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Database;
+
 require 'includes/libs/facebook/facebook.php';
 
 class FacebookAuth implements externalAuth

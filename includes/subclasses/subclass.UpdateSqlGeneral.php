@@ -16,6 +16,8 @@
  */
 
 //$new_code
+use Florian\NewStar\classes\Database;
+
 $sql	= 'UPDATE %%USERS%% SET
         '.$resource[$Element].' = :newPost
         WHERE

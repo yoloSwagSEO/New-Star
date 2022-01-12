@@ -14,7 +14,7 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
-
+use Florian\NewStar\classes\Cache;
 // VARS DB -> SCRIPT WRAPPER
 
 $cache	= Cache::get();

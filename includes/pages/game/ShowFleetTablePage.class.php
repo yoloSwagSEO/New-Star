@@ -14,8 +14,10 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+//use Florian\NewStar\classes\FleetFunctions;
+//require_once(ROOT_PATH . 'includes/classes/class.FleetFunctions.php');
 
-require_once(ROOT_PATH . 'includes/classes/class.FleetFunctions.php');
+use Florian\NewStar\classes\Database;
 
 class ShowFleetTablePage extends AbstractGamePage
 {
@@ -208,7 +210,9 @@ class ShowFleetTablePage extends AbstractGamePage
 	public function show()
 	{
 		global $USER, $PLANET, $reslist, $pricelist, $resource, $LNG;
-		
+
+
+
 		$acsData			= array();
 		$parse				= $LNG;
 		$FleetID			= HTTP::_GP('fleetID', 0);

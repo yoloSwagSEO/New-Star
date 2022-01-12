@@ -14,6 +14,8 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+
+use Florian\NewStar\classes\Database;
 use Florian\NewStar\enums\MissionsEnum as Mission;
 use Florian\NewStar\enums\PlanetTypeEnum as Planet;
 

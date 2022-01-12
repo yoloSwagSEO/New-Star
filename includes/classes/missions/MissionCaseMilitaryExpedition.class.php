@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Database;
+
 require(ROOT_PATH.'includes/classes/missions/functions/HostileSector.php');
 require(ROOT_PATH.'includes/classes/missions/functions/SetHostileSectorBot.php');
 

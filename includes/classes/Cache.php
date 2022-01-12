@@ -1,5 +1,5 @@
 <?php
-
+namespace Florian\NewStar\classes;
 /*
  * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
  * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
@@ -14,9 +14,11 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+use Florian\NewStar\classes\cache\resource\CacheFile;
 
-require 'includes/classes/cache/builder/BuildCache.interface.php';
-require 'includes/classes/cache/resource/CacheFile.class.php';
+
+//require 'includes/classes/cache/builder/BuildCache.interface.php';
+//require 'includes/classes/cache/resource/CacheFile.class.php';
 
 class Cache
 {
@@ -82,10 +84,9 @@ class Cache
 	}
 
 	public function buildCache($Key) {
-		$className		= $this->cacheBuilder[$Key];
-
-		$path			= 'includes/classes/cache/builder/'.$className.'.class.php';
-		require_once $path;
+		$className		= 'Florian\NewStar\classes\cache\builder\\'.$this->cacheBuilder[$Key];
+		//$path			= 'includes/classes/cache/builder/'.$className.'.class.php';
+		//require_once $path;
 
 		/** @var $cacheBuilder BuildCache */
 		$cacheBuilder	= new $className();
