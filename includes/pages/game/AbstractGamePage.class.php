@@ -52,10 +52,12 @@ abstract class AbstractGamePage
 	}
 
 	protected function initTemplate() {
-		if(isset($this->tplObj))
+		global $debugbar;
+	    if(isset($this->tplObj))
 			return true;
 
 		$this->tplObj	= new template;
+		$debugbar->addCollector(new Junker\DebugBar\Bridge\SmartyCollector($this->tplObj));
 		list($tplDir)	= $this->tplObj->getTemplateDir();
 		$this->tplObj->setTemplateDir($tplDir.'game/');
 		return true;
