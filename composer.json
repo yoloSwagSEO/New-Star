@@ -15,6 +15,7 @@
     "minimum-stability": "dev",
     "require": {
       "ext-pdo": "*",
-      "ext-curl": "*"
+      "ext-curl": "*",
+        "symfony/var-dumper": "5.4.2"
     }
 }
