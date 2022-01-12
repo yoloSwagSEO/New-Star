@@ -481,7 +481,7 @@ abstract class AbstractGamePage
 	}
 
 	protected function display($file) {
-		global $THEME, $LNG, $reslist, $USER;
+		global $THEME, $LNG, $reslist, $USER, $debugbarRenderer ;
 
 		$this->save();
 
@@ -496,6 +496,8 @@ abstract class AbstractGamePage
             //Стандартные перменные
 			'lang'    		=> $LNG->getLanguage(),
 			'dpath'			=> $THEME->getTheme(),
+			'debugBarHead'      => $debugbarRenderer->renderHead(),
+			'debugBarRender'    => $debugbarRenderer->render(),
 			'scripts'		=> $this->tplObj->jsscript,
 			'execscript'	=> implode("\n", $this->tplObj->script),
 			'basepath'		=> PROTOCOL.HTTP_HOST.HTTP_BASE,

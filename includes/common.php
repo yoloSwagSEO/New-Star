@@ -18,6 +18,7 @@
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
 use Florian\NewStar\classes\Universe;
+use DebugBar\StandardDebugBar;
 
 if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {
 	exit('You cannot set the GLOBALS-array from outside the script.');
@@ -28,6 +29,8 @@ $composerAutoloader = __DIR__.'/../vendor/autoload.php';
 if (file_exists($composerAutoloader)) {
     require $composerAutoloader;
 }
+$debugbar = new StandardDebugBar();
+$debugbarRenderer = $debugbar->getJavascriptRenderer();
 
 if (function_exists('mb_internal_encoding')) {
 	mb_internal_encoding("UTF-8");

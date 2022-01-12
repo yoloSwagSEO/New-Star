@@ -17,5 +17,8 @@
       "ext-pdo": "*",
       "ext-curl": "*",
         "symfony/var-dumper": "5.4.2"
+    },
+    "require-dev": {
+        "maximebf/debugbar": "1.17.x-dev"
     }
 }

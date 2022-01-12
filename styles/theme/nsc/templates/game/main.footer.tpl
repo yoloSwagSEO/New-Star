@@ -20,5 +20,6 @@
 	</script>
 	{/if}
 </div>
+{$debugBarRender}
 </body>
 </html>

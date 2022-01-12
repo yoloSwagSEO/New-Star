@@ -27,8 +27,10 @@
     <script type="text/javascript" src="./scripts/base/jquery.js"></script>
     <script type="text/javascript" src="./scripts/base/jquery.ui.js"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.cookie.js"></script>
+    {$debugBarHead}
     <!--fancybox-->
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox_3.5.7.css">
+    <link rel="stylesheet" type="text/css" href="./styles/resource/css/debugbar-dark-mode.css">
     <script type="text/javascript" src="./scripts/base/jquery.fancybox.js"></script>
 
     <!-- bootstrap -->

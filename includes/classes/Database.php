@@ -17,7 +17,11 @@
 namespace Florian\NewStar\classes;
 
 
+use DebugBar\DataCollector\PDO\PDOCollector;
+use DebugBar\DataCollector\PDO\TraceablePDO;
+use Exception;
 use PDO;
+use PDOException;
 
 class Database
 {
@@ -49,13 +53,27 @@ class Database
 
 	protected function __construct()
 	{
+	    global $debugbar;
 		$database = array();
 		require 'includes/config.php';
 		//Connect
-		$db = new PDO("mysql:host=".$database['host'].";port=".$database['port'].";dbname=".$database['databasename'], $database['user'], $database['userpw'], array(
-		    PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET utf8mb4, NAMES utf8mb4, sql_mode = 'STRICT_ALL_TABLES'"
-		));
-		//error behaviour
+
+            $db = new PDO("mysql:host=".$database['host'].";port=".$database['port'].";dbname=".$database['databasename'], $database['user'], $database['userpw'], array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET utf8mb4, NAMES utf8mb4, sql_mode = 'STRICT_ALL_TABLES'"
+            ));
+
+        $db->uniqueName = $database['host'] . "-" . $database['databasename'];
+        $debugBar = $debugbar;
+        $tracablePdo = new TraceablePDO($db);
+        if ($debugBar->hasCollector('pdo')) {
+            $pdoCollector = $debugBar->getCollector('pdo');
+        } else {
+            $debugBar->addCollector($pdoCollector = new PDOCollector());
+        }
+
+        $pdoCollector->addConnection($tracablePdo, 'default');
+
+        //error behaviour
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 		// $db->query("set character set utf8");
