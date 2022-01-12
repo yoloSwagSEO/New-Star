@@ -17,7 +17,9 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\PlayerUtil;
 use Florian\NewStar\classes\Session;
+use Florian\NewStar\classes\Template;
 
 if ($USER['authlevel'] == AUTH_USR)
 {
@@ -47,7 +49,7 @@ function ShowLoginPage()
     
     $config	= Config::get();
 
-	$template	= new template();
+	$template	= new Template();
 
 	$template->assign_vars(array(	
         'game_name'	=> $config->game_name,

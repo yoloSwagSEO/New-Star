@@ -19,6 +19,7 @@ use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
 use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\Language;
+use Florian\NewStar\classes\Template;
 
 function getPlanetsHIDDEN($USER){
     global $resource, $pricelist, $reslist;
@@ -317,7 +318,7 @@ function ValidateAddress($address) {
 function message($mes, $dest = "", $time = "3", $topnav = false)
 {
 	require_once('includes/classes/class.template.php');
-	$template = new template();
+	$template = new Template();
 	$template->message($mes, $dest, $time, !$topnav);
 	exit;
 }
@@ -496,7 +497,7 @@ function ClearCache()
 		}
 	}
 
-	$template = new template();
+	$template = new Template();
 	$template->clearAllCache();
 
 
@@ -556,10 +557,6 @@ function exceptionHandler($exception)
 	/** @var $exception ErrorException|Exception */
 
 	if(!headers_sent()) {
-		if (!class_exists('HTTP', false)) {
-			require_once('includes/classes/HTTP.class.php');
-		}
-		
 		HTTP::sendHeader('HTTP/1.1 503 Service Unavailable');
 	}
 

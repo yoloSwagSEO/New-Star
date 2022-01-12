@@ -17,6 +17,11 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\Language;
+use Florian\NewStar\classes\PlayerUtil;
+use Florian\NewStar\classes\Session;
+use Florian\NewStar\classes\Template;
 use Florian\NewStar\classes\Universe;
 
 define('MODE', 'INSTALL');
@@ -32,7 +37,7 @@ $LNG->includeData(array('L18N', 'INGAME', 'INSTALL', 'CUSTOM'));
 
 $mode = HTTP::_GP('mode', '');
 
-$template = new template();
+$template = new Template();
 $template->setCaching(false);
 $template->assign(array(
     'languages'	 => Language::getAllowedLangs(false),

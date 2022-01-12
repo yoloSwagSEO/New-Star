@@ -20,6 +20,7 @@ use Florian\NewStar\classes\Database;
 use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\Language;
 use Florian\NewStar\classes\Session;
+use Florian\NewStar\classes\Theme;
 use Florian\NewStar\classes\Universe;
 use DebugBar\StandardDebugBar;
 
@@ -66,8 +67,8 @@ set_error_handler('errorHandler');
 //require 'includes/classes/Session.class.php';
 //require 'includes/classes/Universe.class.php';
 
-require 'includes/classes/class.theme.php';
-require 'includes/classes/class.template.php';
+//require 'includes/classes/class.theme.php';
+//require 'includes/classes/class.template.php';
 
 // Say Browsers to Allow ThirdParty Cookies (Thanks to morktadela)
 HTTP::sendHeader('P3P', 'CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');

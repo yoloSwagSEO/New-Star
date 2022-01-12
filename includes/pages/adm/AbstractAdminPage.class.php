@@ -17,6 +17,7 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\Template;
 use Florian\NewStar\classes\Universe;
 
 abstract class AbstractAdminPage
@@ -44,7 +45,7 @@ abstract class AbstractAdminPage
 		if(isset($this->tplObj))
 			return true;
 
-		$this->tplObj	= new template;
+		$this->tplObj	= new Template;
 		list($tplDir)	= $this->tplObj->getTemplateDir();
 		$this->tplObj->setTemplateDir($tplDir.'adm/');
 		return true;

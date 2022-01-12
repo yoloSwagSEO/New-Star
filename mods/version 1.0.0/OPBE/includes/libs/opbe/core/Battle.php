@@ -38,7 +38,7 @@ class Battle
      * 
      * @param PlayerGroup $attackers
      * @param PlayerGroup $defenders
-     * @return Battle
+     * @return Void
      */
     public function __construct(PlayerGroup $attackers, PlayerGroup $defenders)
     {

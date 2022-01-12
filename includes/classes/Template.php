@@ -1,5 +1,5 @@
 <?php
-
+namespace Florian\NewStar\classes;
 /*
  * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
  * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
@@ -16,10 +16,12 @@
  */
 
 use Florian\NewStar\classes\Config;
+use Smarty;
 
-require('includes/libs/Smarty/Smarty.class.php');
+
+//require('includes/libs/Smarty/Smarty.class.php');
 		
-class template extends Smarty
+class Template extends Smarty
 {
 	protected $window	= 'full';
 	public $jsscript	= array();
@@ -29,13 +31,14 @@ class template extends Smarty
 	{	
 		parent::__construct();
 		$this->smartySettings();
+
 	}
 
 	private function smartySettings()
 	{
         global $THEME;
         
-		$this->php_handling = Smarty::PHP_REMOVE;
+		//$this->php_handling = Smarty::PHP_REMOVE;
 
 		$this->setForceCompile(false);
 		$this->setMergeCompiledIncludes(true);

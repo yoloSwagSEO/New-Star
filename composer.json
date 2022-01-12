@@ -18,7 +18,9 @@
       "ext-curl": "*",
         "symfony/var-dumper": "5.4.2",
         "junker/debugbar-smarty": "dev-master",
-      "ext-gd": "*"
+      "ext-gd": "*",
+        "smarty/smarty": "4.0.x-dev",
+      "ext-json": "*"
     },
     "require-dev": {
         "maximebf/debugbar": "1.17.x-dev"

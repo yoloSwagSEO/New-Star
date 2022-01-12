@@ -19,6 +19,7 @@ use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
 use Florian\NewStar\classes\FleetFunctions;
 use Florian\NewStar\classes\PlayerUtil;
+use Florian\NewStar\classes\Template;
 
 class MissionCaseSpy extends MissionFunctions implements Mission
 {
@@ -142,9 +143,9 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 		
 		// I'm use template class here, because i want to exclude HTML in PHP.
 		
-		require_once 'includes/classes/class.template.php';
+		//require_once 'includes/classes/class.template.php';
 		
-		$template	= new template;
+		$template	= new Template;
 		
 		$template->caching		= true;
 		$template->compile_id	= $senderUser['lang'];

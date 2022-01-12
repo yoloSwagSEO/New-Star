@@ -20,6 +20,7 @@ use Florian\NewStar\classes\Database;
 use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\PlayerUtil;
 use Florian\NewStar\classes\Session;
+use Florian\NewStar\classes\Template;
 use Florian\NewStar\classes\Universe;
 
 abstract class AbstractGamePage
@@ -59,7 +60,20 @@ abstract class AbstractGamePage
 	    if(isset($this->tplObj))
 			return true;
 
-		$this->tplObj	= new template;
+		$this->tplObj	= new Template;
+
+        $this->tplObj->registerPlugin('modifiercompiler','json', function($params, $compiler){
+            return 'json_encode(' . $params[0] . ')';
+        });
+        $this->tplObj->registerPlugin('modifiercompiler','number',function($params, $compiler)
+        {
+            return 'pretty_number(' . $params[0] . ')';
+        });
+        $this->tplObj->registerPlugin('modifiercompiler','time',function($params, $compiler)
+        {
+            return 'pretty_time(' . $params[0] . ')';
+        });
+
 		$debugbar->addCollector(new Junker\DebugBar\Bridge\SmartyCollector($this->tplObj));
 		list($tplDir)	= $this->tplObj->getTemplateDir();
 		$this->tplObj->setTemplateDir($tplDir.'game/');

@@ -21,6 +21,7 @@ use Florian\NewStar\classes\Cache;
 use Florian\NewStar\classes\FleetFunctions;
 use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\PlayerUtil;
+use Florian\NewStar\classes\Session;
 use Florian\NewStar\classes\Universe;
 use Florian\NewStar\enums\MissionsEnum as Mission;
 
