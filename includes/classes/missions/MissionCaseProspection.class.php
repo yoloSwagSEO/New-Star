@@ -1,5 +1,6 @@
 <?php
 
+use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
 
 class MissionCaseProspection extends MissionFunctions implements Mission{

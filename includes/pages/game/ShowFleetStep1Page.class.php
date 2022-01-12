@@ -17,7 +17,9 @@
 
 //require_once('includes/classes/class.FleetFunctions.php');
 
+use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\Universe;
 
 class ShowFleetStep1Page extends AbstractGamePage
 {

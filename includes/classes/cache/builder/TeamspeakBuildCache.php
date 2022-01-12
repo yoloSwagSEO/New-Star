@@ -17,6 +17,7 @@
 namespace Florian\NewStar\classes\cache\builder;
 
 use Florian\NewStar\classes\cache\builder\BuildCache;
+use Florian\NewStar\classes\Config;
 
 class TeamspeakBuildCache implements BuildCache
 {

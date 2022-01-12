@@ -14,7 +14,9 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
- 
+
+use Florian\NewStar\classes\Config;
+
 class ShowShipyardPage extends AbstractGamePage
 {
 	public static $requireModule = 0;

@@ -16,6 +16,7 @@
  */
 
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\Universe;
 
 require_once 'includes/pages/game/ShowPhalanxPage.class.php';
 

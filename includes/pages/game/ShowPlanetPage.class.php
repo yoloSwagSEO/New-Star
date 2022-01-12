@@ -15,7 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\Universe;
 
 class ShowPlanetPage extends AbstractGamePage
 {

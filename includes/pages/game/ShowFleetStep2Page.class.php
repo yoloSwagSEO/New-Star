@@ -16,6 +16,7 @@
  */
 
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\Universe;
 use Florian\NewStar\enums\MissionsEnum as Mission;
 use Florian\NewStar\enums\PlanetTypeEnum as Planet;
 

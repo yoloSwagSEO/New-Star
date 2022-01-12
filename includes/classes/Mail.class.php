@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Config;
+
 class Mail
 {	
 	static public function send($mailTarget, $mailTargetName, $mailSubject, $mailContent)

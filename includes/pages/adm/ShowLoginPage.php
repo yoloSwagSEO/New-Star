@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Config;
+
 if ($USER['authlevel'] == AUTH_USR)
 {
 	throw new PagePermissionException("Permission error!");

@@ -15,7 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\Universe;
 
 if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {
 	exit('You cannot set the GLOBALS-array from outside the script.');
@@ -53,13 +55,13 @@ set_error_handler('errorHandler');
 //require 'includes/classes/ArrayUtil.class.php';
 //require 'includes/classes/Cache.class.php';
 //require 'includes/classes/Database.class.php';
-require 'includes/classes/Config.class.php';
+//require 'includes/classes/Config.class.php';
 require 'includes/classes/class.FleetFunctions.php';
 require 'includes/classes/HTTP.class.php';
 require 'includes/classes/Language.class.php';
 require 'includes/classes/PlayerUtil.class.php';
 require 'includes/classes/Session.class.php';
-require 'includes/classes/Universe.class.php';
+//require 'includes/classes/Universe.class.php';
 
 require 'includes/classes/class.theme.php';
 require 'includes/classes/class.template.php';

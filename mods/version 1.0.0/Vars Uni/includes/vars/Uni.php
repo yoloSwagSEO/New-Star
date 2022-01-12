@@ -1,5 +1,7 @@
 <?php
 
+use Florian\NewStar\classes\Config;
+
 $config = Config::get();
 
 $config->VERSION = '1.0.0';

@@ -17,7 +17,9 @@
 //use Florian\NewStar\classes\FleetFunctions;
 //require_once(ROOT_PATH . 'includes/classes/class.FleetFunctions.php');
 
+use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\Universe;
 
 class ShowFleetTablePage extends AbstractGamePage
 {
