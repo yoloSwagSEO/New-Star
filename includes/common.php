@@ -30,6 +30,7 @@ if (file_exists($composerAutoloader)) {
     require $composerAutoloader;
 }
 $debugbar = new StandardDebugBar();
+
 $debugbarRenderer = $debugbar->getJavascriptRenderer();
 
 if (function_exists('mb_internal_encoding')) {
@@ -114,6 +115,7 @@ if(defined('DATABASE_VERSION') && DATABASE_VERSION === 'OLD')
 }
 
 $config = Config::get();
+$debugbar->addCollector(new DebugBar\DataCollector\ConfigCollector($config->debugbarAllData));
 date_default_timezone_set($config->timezone);
 
 if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON' || MODE === 'JSON')

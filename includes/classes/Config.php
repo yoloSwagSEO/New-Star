@@ -15,7 +15,9 @@ namespace Florian\NewStar\classes;
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Exception;
 use Florian\NewStar\classes\Database;
+use UnexpectedValueException;
 
 class Config
 {
@@ -95,10 +97,11 @@ class Config
 
 	public function __get($key)
 	{
-		if (!isset($this->configData[$key])) {
+		if (!isset($this->configData[$key]) && $key !== 'debugbarAllData') {
 			throw new UnexpectedValueException(sprintf("Unknown configuration key %s!", $key));
 		}
-
+		if($key === 'debugbarAllData')
+		    return $this->configData;
 		return $this->configData[$key];
 	}
 
@@ -164,6 +167,6 @@ class Config
 
 	static function getAll()
 	{
-		throw new Exception("Config::getAll is deprecated!");
+		return self::$configData;
 	}
 }
