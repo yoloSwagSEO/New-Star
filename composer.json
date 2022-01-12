@@ -16,7 +16,8 @@
     "require": {
       "ext-pdo": "*",
       "ext-curl": "*",
-        "symfony/var-dumper": "5.4.2"
+        "symfony/var-dumper": "5.4.2",
+        "junker/debugbar-smarty": "dev-master"
     },
     "require-dev": {
         "maximebf/debugbar": "1.17.x-dev"
