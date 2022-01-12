@@ -17,6 +17,8 @@
 namespace Florian\NewStar\classes\cache\resource;
 
 
+use BasicFileUtil;
+
 class CacheFile {
 	private $path;
 	public function __construct()

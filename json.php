@@ -16,9 +16,17 @@
  */
 
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
 
 define('MODE', 'JSON');
 define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');
+
+set_include_path(ROOT_PATH);
+$composerAutoloader = __DIR__.'/vendor/autoload.php';
+
+if (file_exists($composerAutoloader)) {
+	require $composerAutoloader;
+}
 
 require(ROOT_PATH.'includes/common.php');
 

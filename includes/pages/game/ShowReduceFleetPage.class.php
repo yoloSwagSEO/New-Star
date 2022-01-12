@@ -15,6 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\FleetFunctions;
+use Florian\NewStar\classes\HTTP;
+
 require_once(ROOT_PATH . 'includes/classes/class.FleetFunctions.php');
 
 class ShowReduceFleetPage extends AbstractGamePage

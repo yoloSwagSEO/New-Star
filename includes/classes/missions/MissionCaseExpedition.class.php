@@ -17,6 +17,8 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\FleetFunctions;
+use Florian\NewStar\classes\PlayerUtil;
 
 class MissionCaseExpedition extends MissionFunctions implements Mission
 {

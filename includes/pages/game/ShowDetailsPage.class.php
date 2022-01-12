@@ -17,6 +17,7 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
 
 class ShowDetailsPage extends AbstractGamePage
 {

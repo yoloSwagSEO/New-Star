@@ -1,5 +1,5 @@
 <?php
-
+namespace Florian\NewStar\classes;
 /*
  * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
  * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
@@ -14,8 +14,11 @@
  * @Basis 2Moons: XG-Project v2.8.0
  * @Basis New-Star: 2Moons v1.8.0
  */
+
+use ArrayAccess;
 use Florian\NewStar\classes\Cache;
 use Florian\NewStar\classes\Config;
+use Florian\NewStar\classes\HTTP;
 
 
 class Language implements ArrayAccess {

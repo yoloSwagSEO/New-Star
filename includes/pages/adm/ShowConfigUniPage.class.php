@@ -16,6 +16,7 @@
  */
 
 use Florian\NewStar\classes\Config;
+use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\Universe;
 
 class ShowConfigUniPage extends AbstractAdminPage

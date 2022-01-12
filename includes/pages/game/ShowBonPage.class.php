@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\HTTP;
+
 class ShowBonPage extends AbstractGamePage
 {
 	public static $requireModule = MODULE_BON;
@@ -34,7 +36,7 @@ class ShowBonPage extends AbstractGamePage
 			return;
 		}
         
-        $amount = HTTP::_GP('amount', 0); 
+        $amount = HTTP::_GP('amount', 0);
         
         if(TIMESTAMP <= $USER[$resource[$Element]]){
 			$this->printMessage(''.$LNG['bd_restart_no'].'', true, array('game.php?page=bon', 2));

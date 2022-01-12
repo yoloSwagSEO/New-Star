@@ -15,9 +15,18 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\HTTP;
+
 define('MODE', 'LOGIN');
 define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');
 set_include_path(ROOT_PATH);
+
+set_include_path(ROOT_PATH);
+$composerAutoloader = __DIR__.'/vendor/autoload.php';
+
+if (file_exists($composerAutoloader)) {
+    require $composerAutoloader;
+}
 
 require 'includes/pages/login/AbstractLoginPage.class.php';
 require 'includes/pages/login/ShowErrorPage.class.php';

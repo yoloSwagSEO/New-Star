@@ -19,6 +19,8 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\FleetFunctions;
+use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\Universe;
 
 class ShowFleetStep1Page extends AbstractGamePage

@@ -17,6 +17,8 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\Language;
+use Florian\NewStar\classes\PlayerUtil;
 
 require_once 'includes/classes/cronjob/CronjobTask.interface.php';
 

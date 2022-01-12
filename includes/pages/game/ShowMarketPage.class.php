@@ -16,6 +16,7 @@
  */
 
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
 
 class ShowMarketPage extends AbstractGamePage
 {

@@ -17,6 +17,7 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\Universe;
 
 require 'includes/libs/facebook/facebook.php';

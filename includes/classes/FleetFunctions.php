@@ -1,5 +1,5 @@
 <?php
-//namespace Florian\NewStar\classes;
+namespace Florian\NewStar\classes;
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;

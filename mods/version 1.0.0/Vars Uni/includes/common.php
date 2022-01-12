@@ -17,6 +17,9 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\Language;
+use Florian\NewStar\classes\Session;
 use Florian\NewStar\classes\Universe;
 
 if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {

@@ -1,5 +1,7 @@
 <?php
 
+use Florian\NewStar\classes\cache\builder\BuildCache;
+
 /**
  *  2Moons 
  *   by Jan-Otto Kröpke 2009-2016

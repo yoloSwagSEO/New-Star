@@ -15,6 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\PlayerUtil;
+
 class ShowCreateMoonPage extends AbstractGamePage
 {
 	public static $requireModule = MODULE_CREATE_MOON;

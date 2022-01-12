@@ -16,6 +16,7 @@
  */
 
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\PlayerUtil;
 
 class MissionCaseStayAlly extends MissionFunctions implements Mission
 {

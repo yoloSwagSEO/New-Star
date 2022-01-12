@@ -16,6 +16,8 @@
  */
 
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\FleetFunctions;
+use Florian\NewStar\classes\Language;
 
 class MissionFunctions
 {	

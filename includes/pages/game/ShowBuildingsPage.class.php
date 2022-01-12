@@ -17,8 +17,9 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
 
-require_once('includes/classes/class.FleetFunctions.php');
+
 class ShowBuildingsPage extends AbstractGamePage
 {	
 	private $build_anz=0;

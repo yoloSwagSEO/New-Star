@@ -17,6 +17,8 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\FleetFunctions;
+use Florian\NewStar\classes\HTTP;
 
 require_once('includes/classes/class.GalaxyRows.php');
 

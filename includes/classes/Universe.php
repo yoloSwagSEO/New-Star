@@ -15,6 +15,8 @@ namespace Florian\NewStar\classes;
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Exception;
+
 class Universe {
 	private static $currentUniverse = NULL;
 	private static $emulatedUniverse = NULL;

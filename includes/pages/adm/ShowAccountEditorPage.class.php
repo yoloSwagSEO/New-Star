@@ -16,6 +16,8 @@
  */
 
 use Florian\NewStar\classes\Config;
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\PlayerUtil;
 use Florian\NewStar\classes\Universe;
 
 class ShowAccountEditorPage extends AbstractAdminPage

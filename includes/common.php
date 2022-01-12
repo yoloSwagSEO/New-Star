@@ -17,6 +17,9 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\Language;
+use Florian\NewStar\classes\Session;
 use Florian\NewStar\classes\Universe;
 use DebugBar\StandardDebugBar;
 
@@ -24,11 +27,7 @@ if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {
 	exit('You cannot set the GLOBALS-array from outside the script.');
 }
 
-$composerAutoloader = __DIR__.'/../vendor/autoload.php';
 
-if (file_exists($composerAutoloader)) {
-    require $composerAutoloader;
-}
 $debugbar = new StandardDebugBar();
 
 $debugbarRenderer = $debugbar->getJavascriptRenderer();
@@ -60,11 +59,11 @@ set_error_handler('errorHandler');
 //require 'includes/classes/Cache.class.php';
 //require 'includes/classes/Database.class.php';
 //require 'includes/classes/Config.class.php';
-require 'includes/classes/class.FleetFunctions.php';
-require 'includes/classes/HTTP.class.php';
-require 'includes/classes/Language.class.php';
-require 'includes/classes/PlayerUtil.class.php';
-require 'includes/classes/Session.class.php';
+//require 'includes/classes/class.FleetFunctions.php';
+//require 'includes/classes/HTTP.class.php';
+//require 'includes/classes/Language.class.php';
+//require 'includes/classes/PlayerUtil.class.php';
+//require 'includes/classes/Session.class.php';
 //require 'includes/classes/Universe.class.php';
 
 require 'includes/classes/class.theme.php';
@@ -121,7 +120,7 @@ date_default_timezone_set($config->timezone);
 if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON' || MODE === 'JSON')
 {
 	$session	= Session::load();
-
+    //dump($session);
 	if(!$session->isValidSession())
 	{
 	    $session->delete();

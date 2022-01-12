@@ -16,6 +16,9 @@
  */
 
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\PlayerUtil;
+use Florian\NewStar\classes\Session;
 use Florian\NewStar\classes\Universe;
 
 class ShowLoginPage extends AbstractLoginPage

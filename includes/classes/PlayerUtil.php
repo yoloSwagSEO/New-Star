@@ -1,5 +1,5 @@
 <?php
-
+namespace Florian\NewStar\classes;
 /*
  * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
  * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
@@ -15,8 +15,10 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Exception;
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\FleetFunctions;
 use Florian\NewStar\classes\Universe;
 
 class PlayerUtil

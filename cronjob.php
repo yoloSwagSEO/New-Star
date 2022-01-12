@@ -15,6 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\Session;
+
 define('MODE', 'CRON');
 define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');
 set_include_path(ROOT_PATH);

@@ -22,6 +22,7 @@ use DebugBar\DataCollector\PDO\TraceablePDO;
 use Exception;
 use PDO;
 use PDOException;
+use PDOStatement;
 
 class Database
 {

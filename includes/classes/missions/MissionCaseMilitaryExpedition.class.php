@@ -17,6 +17,7 @@
 
 use Florian\NewStar\classes\Config;
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\PlayerUtil;
 
 require(ROOT_PATH.'includes/classes/missions/functions/HostileSector.php');
 require(ROOT_PATH.'includes/classes/missions/functions/SetHostileSectorBot.php');

@@ -15,6 +15,7 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\Session;
 use Florian\NewStar\classes\Universe;
 
 class Log

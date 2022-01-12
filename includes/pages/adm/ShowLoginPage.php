@@ -16,6 +16,8 @@
  */
 
 use Florian\NewStar\classes\Config;
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\Session;
 
 if ($USER['authlevel'] == AUTH_USR)
 {

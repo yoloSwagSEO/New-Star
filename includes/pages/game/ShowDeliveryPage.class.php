@@ -17,6 +17,9 @@
 
 //require_once(ROOT_PATH . 'includes/classes/class.FleetFunctions.php');
 
+use Florian\NewStar\classes\FleetFunctions;
+use Florian\NewStar\classes\HTTP;
+
 class ShowDeliveryPage extends AbstractGamePage
 {
 	public static $requireModule = MODULE_DELIVERY;

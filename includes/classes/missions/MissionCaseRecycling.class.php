@@ -16,6 +16,8 @@
  */
 
 use Florian\NewStar\classes\Database;
+use Florian\NewStar\classes\FleetFunctions;
+use Florian\NewStar\classes\PlayerUtil;
 
 class MissionCaseRecycling extends MissionFunctions implements Mission
 {

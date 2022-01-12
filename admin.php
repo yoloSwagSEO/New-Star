@@ -15,6 +15,10 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\Language;
+use Florian\NewStar\classes\Session;
+
 define('MODE', 'ADMIN');
 define('DATABASE_VERSION', 'OLD');
 

@@ -15,6 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\PlayerUtil;
+
 class ShowPasswordPage extends AbstractAdminPage
 {
 	public static $requireModule = 0;

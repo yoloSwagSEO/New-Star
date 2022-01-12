@@ -1,5 +1,7 @@
 <?php
 
+use Florian\NewStar\classes\Language;
+
 class LangImplementation implements Lang
 {
     private $lang;
