@@ -20,6 +20,7 @@ use Florian\NewStar\classes\Database;
 use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\Language;
 use Florian\NewStar\classes\Template;
+use Florian\NewStar\Models\Planet;
 
 function getPlanetsHIDDEN($USER){
     global $resource, $pricelist, $reslist;
@@ -182,51 +183,33 @@ function getPlanets($USER)
 	if(isset($USER['PLANETS']))
 		return $USER['PLANETS'];
 
-	$order = $USER['planet_sort_order'] == 1 ? "DESC" : "ASC" ;
 
-    $sql = "SELECT";
-	$sql .= " id, name, galaxy, `system`, id_luna, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar ";
-    
-    foreach($reslist['resstype'][1] as $resP) 
+    $order = $USER['planet_sort_order'] == 1 ? "DESC" : "ASC" ;
+    $orderField = "";
+
+    switch($USER['planet_sort'])
     {
-        $sql .= " ,".$resource[$resP].", ".$resource[$resP]."_perhour, ".$resource[$resP]."_max ";
+        case 0:
+            $orderField = 'id';
+            break;
+        case 1:
+            $orderField = 'galaxy, system, planet, planet_type';
+            break;
+        case 2:
+            $orderField = 'name';
+            break;
     }
-   
-    foreach($reslist['resstype'][2] as $resS) 
-	{
-        $sql .= " ,".$resource[$resS]."_used, ".$resource[$resS]." ";
-    }
-    
-    foreach(array_merge($reslist['build'], $reslist['fleet'], $reslist['defense'], $reslist['missile']) as $res) 
-	{
-        $sql .= " ,".$resource[$res]." ";
-    }
-    
-    $sql .= " FROM %%PLANETS%% WHERE id_owner = :userId AND planet_type = :planet_type AND destruyed = :destruyed ORDER BY  ";
 
-	switch($USER['planet_sort'])
-	{
-		case 0:
-			$sql	.= 'id '.$order;
-			break;
-		case 1:
-			$sql	.= 'galaxy, system, planet, planet_type '.$order;
-			break;
-		case 2:
-			$sql	.= 'name '.$order;
-			break;
-	}
+    $planetsResult = Planet::where('id_owner',$USER['id'])
+        ->where('planet_type',1)
+        ->where('destruyed',0)
+        ->orderBy($orderField,$order)
+        ->get();
 
-	$planetsResult = Database::get()->select($sql, array(
-		':userId'		=> $USER['id'],
-		':planet_type'		=> 1,
-		':destruyed'	=> 0
-   	));
-	
 	$planetsList = array();
 
 	foreach($planetsResult as $planetRow) {
-		$planetsList[$planetRow['id']]	= $planetRow;
+		$planetsList[$planetRow->id]	= $planetRow;
 	}
 
 	return $planetsList;

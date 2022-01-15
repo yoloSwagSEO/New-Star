@@ -23,6 +23,7 @@ use Florian\NewStar\classes\Session;
 use Florian\NewStar\classes\Theme;
 use Florian\NewStar\classes\Universe;
 use DebugBar\StandardDebugBar;
+use Florian\NewStar\Models\Planet;
 
 if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {
 	exit('You cannot set the GLOBALS-array from outside the script.');
@@ -177,31 +178,19 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON' || MODE === 'JSON')
 		}
 
 		$session->selectActivePlanet();
+        $USER['PLANETS']	= getPlanets($USER);
+		if(array_key_exists($session->planetId,$USER['PLANETS'])){
+            $PLANET = $USER['PLANETS'][$session->planetId]->toArray();
+        }elseif(array_key_exists($USER['id_planet'],$USER['PLANETS'])){
+            $PLANET = $USER['PLANETS'][$USER['id_planet']]->toArray();
+            $session->planetId = $USER['id_planet'];
+        }else{
+            throw new Exception("Main Planet does not exist!");
+        }
 
-		$sql	= "SELECT * FROM %%PLANETS%% WHERE id = :planetId;";
-		$PLANET	= $db->selectSingle($sql, array(
-			':planetId'	=> $session->planetId,
-		));
 
-		if(empty($PLANET))
-		{
-			$sql	= "SELECT * FROM %%PLANETS%% WHERE id = :planetId;";
-			$PLANET	= $db->selectSingle($sql, array(
-				':planetId'	=> $USER['id_planet'],
-			));
-			
-			if(empty($PLANET))
-			{
-				throw new Exception("Main Planet does not exist!");
-			}
-			else
-			{
-				$session->planetId = $USER['id_planet'];
-			}
-		}
-		
 		$USER['factor']		= getFactors($USER);
-		$USER['PLANETS']	= getPlanets($USER);
+
         $reslist		    = getReslist($USER);
 	}
 	elseif (MODE === 'ADMIN')
