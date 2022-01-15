@@ -15,6 +15,10 @@ namespace Florian\NewStar\classes;
  * @Basis New-Star: 2Moons v1.8.0
  */
 
+use BasicFileUtil;
+use DateTime;
+use DateTimeZone;
+use Exception;
 use Florian\NewStar\classes\Config;
 use Smarty;
 
