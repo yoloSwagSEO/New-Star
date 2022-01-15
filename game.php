@@ -17,6 +17,9 @@
 
 use Florian\NewStar\classes\HTTP;
 use Florian\NewStar\classes\Language;
+use Florian\NewStar\models\Planet;
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 
 define('DATABASE_VERSION', 'OLD');
  
@@ -29,6 +32,22 @@ $composerAutoloader = __DIR__.'/vendor/autoload.php';
 if (file_exists($composerAutoloader)) {
     require $composerAutoloader;
 }
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'   => 'mysql',
+    'host'     => 'localhost',
+    'database' => 'new-star',
+    'username' => 'root',
+    'password' => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'   => 'dev_',
+]);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
+
 
 require 'includes/pages/game/AbstractGamePage.class.php';
 require 'includes/pages/game/ShowErrorPage.class.php';

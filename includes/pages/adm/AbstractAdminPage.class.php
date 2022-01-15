@@ -46,6 +46,22 @@ abstract class AbstractAdminPage
 			return true;
 
 		$this->tplObj	= new Template;
+        $this->tplObj->registerPlugin('modifiercompiler','json', function($params, $compiler){
+            return 'json_encode(' . $params[0] . ')';
+        });
+        $this->tplObj->registerPlugin('modifier','json', function($params){
+            return 'json_encode(' . $params[0] . ')';
+        });
+        $this->tplObj->registerPlugin('modifiercompiler','number',function($params, $compiler)
+        {
+            return 'pretty_number(' . $params[0] . ')';
+        });
+        $this->tplObj->registerPlugin('modifiercompiler','time',function($params, $compiler)
+        {
+            return 'pretty_time(' . $params[0] . ')';
+        });
+
+
 		list($tplDir)	= $this->tplObj->getTemplateDir();
 		$this->tplObj->setTemplateDir($tplDir.'adm/');
 		return true;
@@ -171,8 +187,9 @@ abstract class AbstractAdminPage
 		if($this->getWindow() !== 'ajax') {
 			$this->getPageData();
 		}
+        $_GET['page'] = array_key_exists('page',$_GET)?htmlspecialchars($_GET['page']):'overview';
 
-		$this->assign(array(
+        $this->assign(array(
 			'lang'    		=> $LNG->getLanguage(),
             'dpath'			=> $THEME->getTheme(),
 			'scripts'		=> $this->tplObj->jsscript,

@@ -24,7 +24,8 @@ use Florian\NewStar\classes\PlayerUtil;
 use Florian\NewStar\classes\Session;
 use Florian\NewStar\classes\Universe;
 use Florian\NewStar\enums\MissionsEnum as Mission;
-
+use Florian\NewStar\Models\Fleet;
+use Florian\NewStar\Models\User;
 
 class ShowOverviewPage extends AbstractGamePage
 {
@@ -204,7 +205,8 @@ class ShowOverviewPage extends AbstractGamePage
             'side'			=> $side,
         );
     }
-	function savePlanetAction()
+
+    function savePlanetAction()
 	{
 		global $USER, $PLANET, $LNG;
 		$password =	HTTP::_GP('password', '', true);
@@ -261,12 +263,17 @@ class ShowOverviewPage extends AbstractGamePage
         
         $db                     = Database::get();
         
-        $sql = "SELECT * FROM %%FLEETS%% WHERE fleet_owner = :userID AND fleet_mission <> 10 ORDER BY fleet_end_time ASC;";
-        $fleetResult = $db->select($sql, array(
-            ':userID'   => $USER['id']
-        ));
+        //$sql = "SELECT * FROM %%FLEETS%% WHERE fleet_owner = :userID AND fleet_mission <> 10 ORDER BY fleet_end_time ASC;";
+        //$fleetResult = $db->select($sql, array(
+        //    ':userID'   => $USER['id']
+        //));
 
-        $activeFleetSlots	    = $db->rowCount();
+        $fleetResult = Fleet::where('fleet_owner',$USER['id'])
+            ->where('fleet_mission','<>',Mission::MISSILE)
+            ->orderBy('fleet_end_time','ASC')
+            ->get();
+
+        $activeFleetSlots	    = $fleetResult->count();
         $maxFleetSlots	        = FleetFunctions::GetMaxFleetSlots($USER);
         $techExpedition         = $USER[$resource[124]];
 		if ($techExpedition >= 1){
@@ -286,13 +293,15 @@ class ShowOverviewPage extends AbstractGamePage
 
         $db = Database::get();
 
-        $sql	= 'SELECT COUNT(*) as count FROM %%USERS%% WHERE universe = :universe AND onlinetime > :onlineTime';
-		$onlineData	= Database::get()->selectSingle($sql, array(
-			':universe'	=> Universe::current(),
-			':onlineTime'	=> TIMESTAMP - 30 * 60
-		));
-		
-		$UsersOnline = $onlineData['count'];
+        //$sql	= 'SELECT COUNT(*) as count FROM %%USERS%% WHERE universe = :universe AND onlinetime > :onlineTime';
+		//$onlineData	= Database::get()->selectSingle($sql, array(
+		//	':universe'	=> Universe::current(),
+		//	':onlineTime'	=> TIMESTAMP - 30 * 60
+		//));
+
+		$UsersOnline = User::where('universe',Universe::current())
+            ->where('onlinetime','>',TIMESTAMP - 30 * 60)
+            ->count();
 
 		foreach($USER['PLANETS'] as $ID => $CPLANET)
 		{		
@@ -366,7 +375,8 @@ class ShowOverviewPage extends AbstractGamePage
 		
 		
 		$sql = "SELECT id,username FROM %%USERS%% WHERE universe = :universe AND onlinetime >= :onlinetime AND authlevel > :authlevel;";
-        $onlineAdmins = $db->select($sql, array(
+
+		$onlineAdmins = $db->select($sql, array(
             ':universe'     => Universe::current(),
             ':onlinetime'   => TIMESTAMP-10*60,
             ':authlevel'    => AUTH_USR

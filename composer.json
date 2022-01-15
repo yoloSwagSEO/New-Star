@@ -20,7 +20,8 @@
         "junker/debugbar-smarty": "dev-master",
       "ext-gd": "*",
         "smarty/smarty": "4.0.x-dev",
-      "ext-json": "*"
+      "ext-json": "*",
+      "illuminate/database": "8.79.*"
     },
     "require-dev": {
         "maximebf/debugbar": "1.17.x-dev"
