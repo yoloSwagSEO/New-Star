@@ -274,12 +274,7 @@
     margin-right: 10px;
 	    color: #c9c9c9;
 }
-.ship_build #build_elements{
-	margin:0px;
-}
-.build_elements{
-	margin:0px 5px;
-}
+
 #build_elements .build_box .head{
  background:#091d2e;
  position:relative;
@@ -1018,4 +1013,29 @@ width: 98.5% !important;
 }
 .dm_btn_build_border_right{
 	margin-left: 130px !important;
+}
+
+.prices .res_global_info{
+	position: absolute;
+	left: 2px;
+}
+
+#build_elements .build_box .content_box .res_global_info .res_info:nth-child(1) {
+	left: initial;
+	bottom: initial;
+}
+#build_elements .build_box .content_box .res_global_info .res_info:nth-child(2) {
+	left: initial;
+	bottom: initial;
+	top: 23px;
+}
+#build_elements .build_box .content_box .res_global_info .res_info:nth-child(3) {
+	left: initial;
+	bottom: initial;
+	top: 46px;
+}
+#build_elements .build_box .content_box .res_global_info .res_info:nth-child(4) {
+	left: initial;
+	bottom: initial;
+	top: 69px;
 }

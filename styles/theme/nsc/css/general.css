@@ -748,11 +748,9 @@ div.fade {display: none;}
 }
 #build_elements .build_box{
 	position: relative;
-	height: 164px;
 	overflow: hidden;
 	text-align: left;
 	margin: 0px 4px 8px 4px;
-	float: left;
 	border: 1px solid #091d2e;
 	box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.54), -1px -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 1px 0 rgba(0, 0, 0, 0.5), 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
 	-webkit-box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.54), -1px -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 1px 0 rgba(0, 0, 0, 0.5), 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
@@ -769,8 +767,7 @@ div.fade {display: none;}
 	z-index:2;
 }
 #build_elements .build_box .content_box .image{
-	    height: 75px;
-	    width: 80px;
+	    width: 274px;
 	    margin-left: 0px;
 	    margin-top: 2px;
 	    float: left;

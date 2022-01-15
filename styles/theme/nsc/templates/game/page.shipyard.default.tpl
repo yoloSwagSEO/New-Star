@@ -84,9 +84,9 @@
                     </div>
                     {/if}
                 </div>
-                <div id="build_elements">
+                <div id="build_elements" class="row">
                     {foreach $elementList as $ID => $Element}
-                    <div class="build_elements">
+                    <div class="build_elements col-6">
                         <div id="s_{$ID}" class="build_box {if $mode == 'defense'}{if $ID == in_array($ID, $reslist.spec_defense.1)}rank0{elseif $ID == in_array($ID, $reslist.spec_defense.2)}rank1{elseif $ID == in_array($ID, $reslist.spec_defense.3)}rank2{elseif $ID == in_array($ID, $reslist.spec_defense.4)}rank3{/if}{else}{if $ID == in_array($ID, $reslist.spec_fleet.1)}rank0{elseif $ID == in_array($ID, $reslist.spec_fleet.2)}rank1{elseif $ID == in_array($ID, $reslist.spec_fleet.3)}rank2{elseif $ID == in_array($ID, $reslist.spec_fleet.4)}rank3{/if}{/if} {if !$Element.techacc}required{/if}">
                             <div class="head">
                                 <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
@@ -95,43 +95,48 @@
                                 <span id="val_{$ID}">{if $Element.available != 0} ({$Element.available|number}){/if}</span>    
                             </div>
                             <div class="content_box">
-                                <div class="image">
-                                    <a href="#" onclick="return Dialog.info({$ID})"><img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" /></a>
-                                </div>
-                                {if !$Element.techacc}
-                                <div class="prices">
-                                    <div class="necccos">{$LNG.bd_needed_tech}</div>
-                                    {foreach $Element.AllTech as $elementID => $requireList}
-                                        {foreach $requireList as $requireID => $NeedLevel}
-                                        <div class="required_block required_smal_text">
-                                            <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip2m" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
-                                            <img src="{$dpath}gebaeude/{$requireID}.gif" alt="{$LNG.tech.$requireID}" />
-                                            <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.own}/{$NeedLevel.count}</div></a>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="image">
+                                            <a href="#" onclick="return Dialog.info({$ID})"><img src="{$dpath}gebaeude/big/{$ID}.webp" alt="{$LNG.tech.{$ID}}" /></a>
                                         </div>
-                                        {/foreach}
-                                    {/foreach}
-                                </div>     
-                                {else}
-                                <div class="prices">
-                                    {foreach $Element.costResources as $RessID => $RessAmount}
-                                    <div class="price res{$RessID} {if $Element.costOverflow[$RessID] == 0}{else}required{/if}">
-                                        <div class="ico"></div>
-                                        <div class="text" data-tooltip-content="">{$RessAmount|number}</div>                                        
                                     </div>
-                                    {/foreach}   
-                                    <div class="res_global_info">
-                                        {if !empty($Element.fleetgun)}
-                                        {if $Element.fleetgun == 'notype'}
-                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
+                                    <div class="col-6">
+                                        {if !$Element.techacc}
+                                            <div class="prices">
+                                                <div class="necccos">{$LNG.bd_needed_tech}</div>
+                                                {foreach $Element.AllTech as $elementID => $requireList}
+                                                    {foreach $requireList as $requireID => $NeedLevel}
+                                                        <div class="required_block required_smal_text">
+                                                            <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip2m" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
+                                                                <img src="{$dpath}gebaeude/{$requireID}.gif" alt="{$LNG.tech.$requireID}" />
+                                                                <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.own}/{$NeedLevel.count}</div></a>
+                                                        </div>
+                                                    {/foreach}
+                                                {/foreach}
+                                            </div>
+                                        {else}
+                                            <div class="prices">
+                                                {foreach $Element.costResources as $RessID => $RessAmount}
+                                                    <div class="price res{$RessID} {if $Element.costOverflow[$RessID] == 0}{else}required{/if}">
+                                                        <div class="ico"></div>
+                                                        <div class="text" data-tooltip-content="">{$RessAmount|number}</div>
+                                                    </div>
+                                                {/foreach}
+                                                <div class="res_global_info">
+                                                    {if !empty($Element.fleetgun)}
+                                                        {if $Element.fleetgun == 'notype'}
+                                                            <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/notype.png'></td>
                                                     <td class='reducefleet_name_ship'>{$LNG.in_attack_pt} <span class='reducefleet_count_ship'>{$Element.attack|number}</span></td>
                                                 </tr>
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/notype.png"></a>
-                                        </div>
-                                        {else}
-                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
+                                                            </div>
+                                                        {else}
+                                                            <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 {if !empty($Element.fleetgun.laser.attack)}
                                                 <tr>
@@ -158,30 +163,30 @@
                                                 </tr>
                                                 {/if}
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/type_at.png"></a>
-                                        </div>
-                                        {/if}
-                                        {/if}
-                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
+                                                            </div>
+                                                        {/if}
+                                                    {/if}
+                                                    <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/d_{$Element.info.class_defend}.png'></td>
                                                     <td class='reducefleet_name_ship'>{$LNG["in_armor_{$Element.info.class_defend}"]} <span class='reducefleet_count_ship'>{$Element.defend|number}</span></td>
                                                 </tr>
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/d_{$Element.info.class_defend}.png"></a>
-                                        </div>
-                                        {if $Element.info.class_shield != 's_none'}
-                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
+                                                    </div>
+                                                    {if $Element.info.class_shield != 's_none'}
+                                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/s_{$Element.info.class_shield}.png'></td>
                                                     <td class='reducefleet_name_ship'>{$LNG["in_shield_{$Element.info.class_shield}"]} <span class='reducefleet_count_ship'>{$Element.shield|number}</span></td>
                                                 </tr>
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/s_{$Element.info.class_shield}.png"></a>
-                                        </div>
-                                        {/if}
-                                        {if !empty($Element.tech) && !empty($Element.speed1)}
-                                        <div class="res_info info_res_901">
-                                        <a class="tooltip2m" data-tooltip-content="
+                                                        </div>
+                                                    {/if}
+                                                    {if !empty($Element.tech) && !empty($Element.speed1)}
+                                                        <div class="res_info info_res_901">
+                                                            <a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     {if $Element.tech == 1 || $Element.tech == 4}
@@ -208,29 +213,34 @@
                                                 {/if}
                                                 </tr>
                                             </table>">
-                                            {if $Element.tech == 1 || $Element.tech == 4}
-                                                <img height="15" width="15" src="{$dpath}img/information/comb.png">
-                                            {elseif $Element.tech == 2 || $Element.tech == 5}
-                                                <img height="15" width="15" src="{$dpath}img/information/imp.png">
-                                            {else}
-                                                <img height="15" width="15" src="{$dpath}img/information/hyper.png">
-                                            {/if}
-                                        </a>
-                                        </div>     
-                                        {/if} 
-                                        {if $ID == in_array($ID, $reslist.defense)}
-                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
+                                                                {if $Element.tech == 1 || $Element.tech == 4}
+                                                                    <img height="15" width="15" src="{$dpath}img/information/comb.png">
+                                                                {elseif $Element.tech == 2 || $Element.tech == 5}
+                                                                    <img height="15" width="15" src="{$dpath}img/information/imp.png">
+                                                                {else}
+                                                                    <img height="15" width="15" src="{$dpath}img/information/hyper.png">
+                                                                {/if}
+                                                            </a>
+                                                        </div>
+                                                    {/if}
+                                                    {if $ID == in_array($ID, $reslist.defense)}
+                                                        <div class="res_info info_res_901"><a class="tooltip2m" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/recovery.png'></td>
                                                     <td class='reducefleet_name_ship'>{$LNG.in_recovery}</td>
                                                 </tr>
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/recovery.png"></a>
-                                        </div>
-                                        {/if} 
+                                                        </div>
+                                                    {/if}
+                                                </div>
+                                            </div>
+                                        {/if}
                                     </div>
-                                </div>        
-                                {/if}			
+                                </div>
+
+
+
                                 <div class="clear"></div>
                                 <div class="time_build">
                                 {if !$Element.techacc}{else}
