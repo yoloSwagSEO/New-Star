@@ -23,8 +23,13 @@ define('MODE', 'ADMIN');
 define('DATABASE_VERSION', 'OLD');
 
 define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');
-set_include_path(ROOT_PATH);
 
+set_include_path(ROOT_PATH);
+$composerAutoloader = __DIR__.'/vendor/autoload.php';
+
+if (file_exists($composerAutoloader)) {
+    require $composerAutoloader;
+}
 require 'includes/pages/adm/AbstractAdminPage.class.php';
 require 'includes/pages/adm/ShowErrorPage.class.php';
 require 'includes/common.php';
