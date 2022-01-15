@@ -73,9 +73,9 @@
                         {$LNG.bd_free_field} <span>{$field_left}</span>
                     </div>
                 </div>
-                <div id="build_elements">
+                <div id="build_elements" class="row">
                     {foreach $BuildInfoList as $ID => $Element}
-                    <div class="build_elements">
+                    <div class="build_elements col-4">
                         <div id="build_{$ID}" class="build_box {if $ID == in_array($ID, $reslist.spec_build.1)}build1{elseif $ID == in_array($ID, $reslist.spec_build.2)}build2{elseif $ID == in_array($ID, $reslist.spec_build.3)}build3{elseif $ID == in_array($ID, $reslist.spec_build.4)}build4{/if} {if !$Element.techacc}required{/if}">
                             <div class="head">
                                 <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
