@@ -16,6 +16,7 @@
  */
 
 use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\classes\Language;
 
 define('MODE', 'LOGIN');
 define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');

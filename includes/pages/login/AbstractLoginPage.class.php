@@ -60,6 +60,18 @@ abstract class AbstractLoginPage
 			return true;
 			
 		$this->tplObj	= new Template;
+        $this->tplObj->registerPlugin('modifiercompiler','json', function($params, $compiler){
+            return 'json_encode(' . $params[0] . ')';
+        });
+        $this->tplObj->registerPlugin('modifiercompiler','number',function($params, $compiler)
+        {
+            return 'pretty_number(' . $params[0] . ')';
+        });
+        $this->tplObj->registerPlugin('modifiercompiler','time',function($params, $compiler)
+        {
+            return 'pretty_time(' . $params[0] . ')';
+        });
+
 		list($tplDir)	= $this->tplObj->getTemplateDir();
 		$this->tplObj->setTemplateDir($tplDir.'login/');
 		return true;
@@ -159,7 +171,10 @@ abstract class AbstractLoginPage
 		} else {
 			$basePath = PROTOCOL.HTTP_HOST.HTTP_BASE;
 		}
-		
+
+		$_GET['page'] = array_key_exists('page',$_GET)?htmlspecialchars($_GET['page']):'overview';
+
+
 		$this->assign(array(
             'lang'    			=> $LNG->getLanguage(),
 			'bodyclass'			=> $this->getWindow(),

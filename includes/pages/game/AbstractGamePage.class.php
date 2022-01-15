@@ -507,8 +507,9 @@ abstract class AbstractGamePage
 		if($this->getWindow() !== 'ajax') {
 			$this->getPageData();
 		}
+        $_GET['page'] = array_key_exists('page',$_GET)?htmlspecialchars($_GET['page']):'overview';
 
-		$this->assign(array(
+        $this->assign(array(
             //Аватарки
             'foto'			=> $USER['foto'],
             'background'	=> $USER['background'],
