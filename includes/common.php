@@ -23,7 +23,11 @@ use Florian\NewStar\classes\Session;
 use Florian\NewStar\classes\Theme;
 use Florian\NewStar\classes\Universe;
 use DebugBar\StandardDebugBar;
+use Florian\NewStar\Models\Message;
 use Florian\NewStar\Models\Planet;
+use Florian\NewStar\Models\User;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {
 	exit('You cannot set the GLOBALS-array from outside the script.');
@@ -139,19 +143,13 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON' || MODE === 'JSON')
 	
 	$db		= Database::get();
 
-	$sql	= "SELECT 
-	user.*,
-	COUNT(message.message_id) as messages
-	FROM %%USERS%% as user
-	LEFT JOIN %%MESSAGES%% as message ON message.message_owner = user.id AND message.message_unread = :unread
-	WHERE user.id = :userId
-	GROUP BY message.message_owner;";
-	
-	$USER	= $db->selectSingle($sql, array(
-		':unread'	=> 1,
-		':userId'	=> $session->userId
-	));
-	
+	$USER = (array)User::withCount(['messages as messages' => function (Builder $query) {
+            $query->where('message_unread', '=',1);
+        }])
+        ->where('id',$session->userId)
+        ->first()
+        ->toArray();
+
 	if(empty($USER))
 	{
 		HTTP::redirectTo('index.php?code=3');
