@@ -200,7 +200,7 @@ class ShowInformationPage extends AbstractGamePage
 
 	public function show()
 	{
-		global $USER, $PLANET, $LNG, $resource, $pricelist, $reslist, $CombatCaps, $ProdGrid;
+		global $USER, $PLANET, $LNG, $resource, $pricelist, $reslist, $CombatCaps, $ProdGrid,$dModels;
 
 		$elementID 	= HTTP::_GP('id', 0);
 
@@ -407,9 +407,14 @@ class ShowInformationPage extends AbstractGamePage
 				503	=> $PLANET[$resource[503]]
 			);
 		}
+        $iframe = "";
+		if(array_key_exists($elementID,$dModels)){
+		    $iframe = $dModels[$elementID];
+        }
 
 		$this->assign(array(
 			'elementID'			=> $elementID,
+			'troisDModel'           => $iframe,
 			'productionTable'	=> $productionTable,
 			'CurrentLevel'		=> $CurrentLevel,
 			'MissileList'		=> $MissileList,

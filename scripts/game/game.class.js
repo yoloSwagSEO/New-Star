@@ -33,7 +33,7 @@ function rank(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_star').addClass('record_btn_active');
-		$('.build_elements .build_box').show();
+		$('.build_elements').show();
 	}
 };
 
@@ -42,8 +42,8 @@ function rank0(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_rank_0').addClass('record_btn_active');
-		$('.build_elements .build_box').hide();
-        $('.build_elements .rank0').show();
+		$('.build_elements').hide();
+        $('.build_elements.rank0').show();
 	}
 };
 
@@ -52,8 +52,8 @@ function rank1(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_rank_1').addClass('record_btn_active');
-		$('.build_elements .build_box').hide();
-		$('.build_elements .rank1').show();
+		$('.build_elements').hide();
+		$('.build_elements.rank1').show();
 	}
 };
 
@@ -62,8 +62,8 @@ function rank2(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_rank_2').addClass('record_btn_active');
-		$('.build_elements .build_box').hide();
-		$('.build_elements .rank2').show();
+		$('.build_elements').hide();
+		$('.build_elements.rank2').show();
 	}
 };
 
@@ -72,8 +72,8 @@ function rank3(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_rank_3').addClass('record_btn_active');
-		$('.build_elements .build_box').hide();
-		$('.build_elements .rank3').show();
+		$('.build_elements').hide();
+		$('.build_elements.rank3').show();
 	}
 };
 //Постройки

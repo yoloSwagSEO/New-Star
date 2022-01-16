@@ -134,3 +134,12 @@ $reslist['tablefleet_recyclers']        = explode(',', Config::get()->reslist_ta
 $reslist['tablefleet_special']          = explode(',', Config::get()->reslist_tablefleet_special);   //Особые
 //Сектора PvE
 $SectorME                               = explode(',', Config::get()->SectorME);
+
+
+$dModels = [
+  212 => '<iframe class="c-viewer__iframe" src="https://sketchfab.com/models/768d90f76e8644d7a9e50f801c92e266/embed?autostart=1&amp;internal=1&amp;tracking=0&amp;ui_ar=0&amp;ui_infos=0&amp;ui_snapshots=1&amp;ui_stop=0&amp;ui_theatre=1&amp;ui_watermark=0" id="api-frame" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking="true" execution-while-out-of-viewport="true" execution-while-not-rendered="true" web-share="true" allowfullscreen=""></iframe>',
+  210 => '<iframe class="c-viewer__iframe" src="https://sketchfab.com/models/ec22ee5495614a8894842a014e721cab/embed?autostart=1&amp;internal=1&amp;tracking=0&amp;ui_ar=0&amp;ui_infos=0&amp;ui_snapshots=1&amp;ui_stop=0&amp;ui_theatre=1&amp;ui_watermark=0" id="api-frame" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking="true" execution-while-out-of-viewport="true" execution-while-not-rendered="true" web-share="true" allowfullscreen=""></iframe>',
+  233 => '<iframe class="c-viewer__iframe" src="https://sketchfab.com/models/41d3b1c060b64c0da7d39f58a2323f5c/embed?autostart=1&amp;internal=1&amp;tracking=0&amp;ui_ar=0&amp;ui_infos=0&amp;ui_snapshots=1&amp;ui_stop=0&amp;ui_theatre=1&amp;ui_watermark=0" id="api-frame" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking="true" execution-while-out-of-viewport="true" execution-while-not-rendered="true" web-share="true" allowfullscreen=""></iframe>',
+  232 => '<iframe class="c-viewer__iframe" src="https://sketchfab.com/models/f1f1dbb99e0643219bc054495a715e02/embed?autostart=1&internal=1&tracking=0&ui_ar=0&ui_infos=0&ui_snapshots=1&ui_stop=0&ui_theatre=1&ui_watermark=0" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking="true" execution-while-out-of-viewport="true" execution-while-not-rendered="true" web-share="true" allowfullscreen=""></iframe>',
+
+];

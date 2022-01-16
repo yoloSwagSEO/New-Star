@@ -1343,3 +1343,9 @@ table.gray_stripe_th td{
     background: #000d1f;
     border: 1px solid #000;
 }
+
+
+#information iframe{
+    width: 100%;
+    height: 357px;
+}

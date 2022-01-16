@@ -44,8 +44,12 @@ class ShowBuyFleetPage extends AbstractGamePage
         //Цена
 		$cost			= BuildFunctions::instantPurchasePrice($Element) * $Count;
         //Ограничение по технологиям и $reslist
-		if(!empty($Element) && in_array($Element, $reslist['fleet']) && BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) && in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['not_bought']))
-		{ 
+		if(
+			!empty($Element)
+			&& in_array($Element, $reslist['fleet'])
+			&& BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array())
+			&& in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['not_bought'])
+		){
             //Нехватка ресурса.
 			if($USER[$resource[$resglobal['buy_instantly']]] < $cost )
 			{
@@ -54,14 +58,11 @@ class ShowBuyFleetPage extends AbstractGamePage
 			}
 			//Всего хватает.
 			$USER[$resource[$resglobal['buy_instantly']]] -= $cost;
-			
-            $sql	= 'UPDATE %%PLANETS%% SET
-            '.$resource[$Element].' = '.$resource[$Element].' + '.$Count.'
-            WHERE id = :Id;';
-                
-            Database::get()->update($sql, array(
-                ':Id'	=> $PLANET['id']
-            ));  
+
+			$_planet = Planet::where('id',$PLANET['id'])->first();
+			$_planet->{$resource[$Element]} = $_planet->{$resource[$Element]}+$Count;
+			$_planet->save();
+
             $PLANET[$resource[$Element]]		+= $Count;
             
 			$this->printMessage(''.$LNG['bd_buy_yes'].'', true, array("game.php?page=buyFleet", 1));

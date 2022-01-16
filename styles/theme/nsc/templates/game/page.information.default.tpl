@@ -11,6 +11,7 @@
                     </div> 
                     <div class="info_elements">
                         <div class="content_box ">
+                            {$troisDModel}
                             <div class="image">
                                 <img src="{$dpath}gebaeude/{$elementID}.gif" alt="">
                             </div>

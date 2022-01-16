@@ -17,6 +17,7 @@
 
 use Florian\NewStar\classes\Database;
 use Florian\NewStar\classes\HTTP;
+use Florian\NewStar\Models\Planet;
 
 class ShowBuyBuildPage extends AbstractGamePage
 {
@@ -78,14 +79,11 @@ class ShowBuyBuildPage extends AbstractGamePage
 			//Всего хватает.
 			$USER[$resource[$resglobal['buy_instantly']]] -= $cost;
 			$PLANET['field_current'] += $Count;
-            
-            $sql	= 'UPDATE %%PLANETS%% SET
-            '.$resource[$Element].' = '.$resource[$Element].' + '.$Count.'
-            WHERE id = :Id;';
-                
-            Database::get()->update($sql, array(
-                ':Id'	=> $PLANET['id']
-            ));  
+
+			$_planet = Planet::where('id',$PLANET['id'])->first();
+			$_planet->{$resource[$Element]} = $_planet->{$resource[$Element]}+$Count;
+			$_planet->save();
+
             $PLANET[$resource[$Element]]		+= $Count;
             
 			$this->printMessage(''.$LNG['bd_buy_yes'].'', true, array("game.php?page=buyBuild", 1));
